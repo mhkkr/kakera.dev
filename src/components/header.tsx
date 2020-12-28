@@ -31,6 +31,7 @@ export default ({ titlePre = '' }) => {
           ))}
         </ul>
       </nav>
+      <p>工事中！こうじちゅう・・・！</p>
     </HeaderComponent>
   )
 }
@@ -38,6 +39,13 @@ export default ({ titlePre = '' }) => {
 import styled from 'styled-components'
 
 const HeaderComponent = styled.header`
+  p {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    margin-top: 2rem;
+    padding: .5em;
+  }
   [class]& {
     display: flex;
     flex-direction: column;
