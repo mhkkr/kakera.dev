@@ -128,8 +128,8 @@ const GlobalStyle = createGlobalStyle`
     // }
   }
   body {
-    background: var(--color-bg-base1);
-    background: radial-gradient(circle, var(--color-bg-base1) 80%, var(--color-bg-base2) 100%);
+    /* background: var(--color-bg-base1); */
+    /* background: radial-gradient(circle, var(--color-bg-base1) 80%, var(--color-bg-base2) 100%); */
     box-sizing: border-box;
     color: var(--color-font);
     -webkit-font-smoothing: antialiased;
@@ -150,7 +150,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 const ThemeProvider = styled.div`
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  max-width: 73rem;
 `

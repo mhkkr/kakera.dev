@@ -23,9 +23,7 @@ const ProfileDetail = ({ isExcerpt = true }) => {
         <h2 className="title">🧑 プロフィール</h2>
       )}
       <p className="text">
-        地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
-        現代フロントエンドを学びなおしたく巣ごもり学習を選択。絶賛わからんことだらけ。<br />
-        その合間に、趣味の自転車欲と生活費のため、噂のお食事の配達パートナーをやってます！🚴
+        たらたらと日常やウェブ系の調べたメモを書いてます
       </p>
       {isExcerpt === false && (
         <aside>
@@ -37,7 +35,11 @@ const ProfileDetail = ({ isExcerpt = true }) => {
       )}
       {isExcerpt === false ? (
         <p className="text">
-          さらに詳しく。書く。
+          地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
+          どうしていいかわからんうちに退職してしまったので
+          現代フロントエンドを学びなおしたく巣ごもり学習…。絶賛わからんことだらけ。<br />
+          自転車趣味を生かして、噂のお食事の配達パートナーをやってます！🚴<br />
+          このサイトではたらたらと日常（LifeLog）やウェブ系の調べたメモ（TechBlog）を書いてます📝。
         </p>
       ) : (
         <p className="more"><Link href="/about"><a>もっと知る →</a></Link></p>
@@ -58,5 +60,15 @@ const ProfileComponentDiv = styled(BaseSection.withComponent('div'))`
   }
 `;
 const ProfileComponentSection = styled(BaseSection)`
-  margin-top: 5rem;
+  margin-top: 0;
+
+  .text {
+    text-align: center;
+    &:before {
+      content: "🍚～（ ";
+    }
+    &:after {
+      content: " ）～🌏";
+    }
+  }
 `;

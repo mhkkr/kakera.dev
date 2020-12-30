@@ -13,8 +13,12 @@ export default ({ titlePre = '' }) => {
 
   return (
     <HeaderComponent>
-      <h1 className="title"><Link href="/"><a><img className="avatar" src="/avatar.png" alt="kakera.dev" height={100} /></a></Link></h1>
-      <nav className="nav">
+      {titlePre === '' ? (
+        <h1 className="title"><Link href="/"><a><img className="avatar" src="/avatar.png" alt="kakera.dev" height={100} /></a></Link></h1>
+      ) : (
+        <div className="title"><Link href="/"><a><img className="avatar" src="/avatar.png" alt="kakera.dev" height={100} /></a></Link></div>
+      )}
+      {/* <nav className="nav">
         <ul className="nav__list">
           {navItems.map(({ label, page, link }) => (
             <li className="nav__item" key={label}>
@@ -30,8 +34,8 @@ export default ({ titlePre = '' }) => {
             </li>
           ))}
         </ul>
-      </nav>
-      <p>工事中！こうじちゅう・・・！</p>
+      </nav> */}
+      {/* <p>工事中！こうじちゅう・・・！</p> */}
     </HeaderComponent>
   )
 }
@@ -39,13 +43,13 @@ export default ({ titlePre = '' }) => {
 import styled from 'styled-components'
 
 const HeaderComponent = styled.header`
-  p {
+  /* p {
     background-color: #111;
     color: #fff;
     text-align: center;
     margin-top: 2rem;
     padding: .5em;
-  }
+  } */
   [class]& {
     display: flex;
     flex-direction: column;

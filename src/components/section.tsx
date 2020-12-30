@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
 const BaseSection = styled.section`
-  [class]& {
-    margin: 6rem 0;
-  }
+  margin: 6rem auto;
+  padding: 0 1.5rem;
+  max-width: 75rem;
+
   .title {
     font-size: 1.25em;
     margin-bottom: 1.75rem;
