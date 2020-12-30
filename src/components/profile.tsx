@@ -22,27 +22,28 @@ const ProfileDetail = ({ isExcerpt = true }) => {
       {isExcerpt === false && (
         <h2 className="title">🧑 プロフィール</h2>
       )}
-      <p className="text">
-        たらたらと日常やウェブ系の調べたメモを書いてます
-      </p>
-      {isExcerpt === false && (
-        <aside>
-          <h2>スキル</h2>
-          <ul>
-            <li></li>
-          </ul>
-        </aside>
-      )}
       {isExcerpt === false ? (
-        <p className="text">
-          地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
-          どうしていいかわからんうちに退職してしまったので
-          現代フロントエンドを学びなおしたく巣ごもり学習…。絶賛わからんことだらけ。<br />
-          自転車趣味を生かして、噂のお食事の配達パートナーをやってます！🚴<br />
-          このサイトではたらたらと日常（LifeLog）やウェブ系の調べたメモ（TechBlog）を書いてます📝。
-        </p>
+        <>
+          <p className="text">
+            地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
+            どうしていいかわからんうちに退職してしまったので、<br />
+            現代フロントエンドを学びなおしたく巣ごもり学習…。絶賛わからんことだらけ。<br />
+            自転車趣味を生かして、噂のお食事の配達パートナーをやってます！🚴<br />
+            このサイトではたらたらと日常（LifeLog）やウェブ系の調べたメモ（TechBlog）を書いてます📝。<br />
+            Notion Blog のカスタマイズは途中！旧ブログも移行中…。
+          </p>
+          {/* <aside>
+            <h2>スキル</h2>
+            <ul>
+              <li></li>
+            </ul>
+          </aside> */}
+        </>
       ) : (
-        <p className="more"><Link href="/about"><a>もっと知る →</a></Link></p>
+        <>
+          <p className="text">たらたらと日常やウェブ系の調べたメモを書いてます</p>
+          <p className="more"><Link href="/about"><a>もっと知る →</a></Link></p>
+        </>
       )}
     </>
   )
