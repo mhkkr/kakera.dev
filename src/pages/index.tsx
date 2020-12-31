@@ -64,7 +64,7 @@ export default ({ posts = [] }) => {
                       )}
                       {post.Category && (
                         <Link href={`/blog/category/[tagName]`} as={`/blog/category/${post.Category}`} passHref prefetch={false}>
-                          <a className="category">{post.Category === 'LifeLog' && ('📕')}{post.Category === 'TechBlog' && ('📘')} {post.Category}</a>
+                          <a className="category" data-category={post.Category}>📂 {post.Category}</a>
                         </Link>
                       )}
                       <time className="posted">{getDateStr(post.Date)}</time>
@@ -141,44 +141,6 @@ const IconsComponent = styled.ul`
         float: right;
       }
     }
-
-    /* transform: rotate(45deg); */
-
-    /* animation: icon 29s linear infinite; */
-    /* position: absolute; left: 50%; bottom: 0; */
-
-    @keyframes icon {
-      0%{
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-        border-radius: 0;
-      }
-      100%{
-        transform: translateY(-100vh) rotate(720deg);
-        opacity: 0;
-        border-radius: 50%;
-      }
-    }
-    /* &:nth-child(1) { animation-delay: 2s; };
-    &:nth-child(2) { animation-delay: 4s; };
-    &:nth-child(3) { animation-delay: 6s; };
-    &:nth-child(4) { animation-delay: 8s; };
-    &:nth-child(5) { animation-delay: 10s; };
-    &:nth-child(6) { animation-delay: 12s; };
-    &:nth-child(7) { animation-delay: 14s; };
-    &:nth-child(8) { animation-delay: 16s; };
-    &:nth-child(9) { animation-delay: 18s; };
-    &:nth-child(10) { animation-delay: 20s; };
-    &:nth-child(11) { animation-delay: 22s; };
-    &:nth-child(12) { animation-delay: 24s; };
-    &:nth-child(13) { animation-delay: 26s; };
-    &:nth-child(14) { animation-delay: 28s; }; */
-
-    /* @for $i from 0 through 15 {
-        &:nth-child(#{$i+1}){
-            animation-delay: #{$i * 2}s;
-        }
-    } */
   }
 `
 
@@ -215,13 +177,20 @@ const PostsListComponent = styled(BasePostsList)`
   }
   .category {
     margin-left: 1rem;
+
+    &[data-category="LifeLog"] {
+      color: rgb(255, 115, 105);
+    }
+    &[data-category="TechBlog"] {
+      color: rgb(82, 156, 202);
+    }
   }
   .tag {
     margin-left: .5rem;
 
     // .tag__label
     &__label {
-      background-color: #999;
+      background-color: rgb(80, 85, 88);
       border-radius: .25em;
       color: #fff;
       display: inline-block;

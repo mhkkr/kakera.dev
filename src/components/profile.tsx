@@ -26,11 +26,10 @@ const ProfileDetail = ({ isExcerpt = true }) => {
         <>
           <p className="text">
             地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
-            どうしていいかわからんうちに退職してしまったので、<br />
-            現代フロントエンドを学びなおしたく巣ごもり学習…。絶賛わからんことだらけ。<br />
+            この先どうしていいかわからんうちに退職してしまったので、現代フロントエンドを学びなおしたく巣ごもり学習…。絶賛わからんことだらけ。<br />
             自転車趣味を生かして、噂のお食事の配達パートナーをやってます！🚴<br />
             このサイトではたらたらと日常（LifeLog）やウェブ系の調べたメモ（TechBlog）を書いてます📝。<br />
-            Notion Blog のカスタマイズは途中！旧ブログも移行中…。
+            Notion Blog というサービスで作っています。カスタマイズは途中！旧ブログも移行中…。
           </p>
           {/* <aside>
             <h2>スキル</h2>
@@ -53,6 +52,8 @@ import styled from 'styled-components'
 import BaseSection from './section'
 
 const ProfileComponentDiv = styled(BaseSection.withComponent('div'))`
+  margin-top: 0;
+
   .title {
     margin-bottom: 1.5rem;
   }
@@ -60,6 +61,7 @@ const ProfileComponentDiv = styled(BaseSection.withComponent('div'))`
     margin: 3rem 0;
   }
 `;
+
 const ProfileComponentSection = styled(BaseSection)`
   margin-top: 0;
 

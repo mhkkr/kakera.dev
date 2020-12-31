@@ -25,12 +25,14 @@ const IconComponent = styled(BaseIconComponent)`
     z-index: -1;
   }
   &::before {
-    border-right: 0.625em solid #cd087b;
+    border-right: 0.64em solid #cd087b;
+    /* border-right: 0.625em solid #cd087b; */
     /* left: 0.29375em; */
     left: 0.3em;
   }
   &::after {
-    border-left: 0.625em solid #cd087b;
+    border-left: 0.64em solid #cd087b;
+    /* border-left: 0.625em solid #cd087b; */
     /* right: 0.29375em; */
     right: 0.3em;
   }
