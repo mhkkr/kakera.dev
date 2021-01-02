@@ -7,6 +7,7 @@ const BaseIconComponent = styled.span`
   line-height: 1;
   position: relative;
   width: 1.875em;
+  word-break: normal;
 `;
 
 export default BaseIconComponent
