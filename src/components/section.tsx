@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const BaseSection = styled.section`
+const BaseSection = styled.section` && {
   margin: 6rem auto;
   padding: 0 1.5rem;
   max-width: 75rem;
@@ -33,12 +33,12 @@ const BaseSection = styled.section`
 
       transition: .3s;
       &:hover {
-        background-color: rgb(47, 52, 55);
-        box-shadow: 0 0 10px 5px rgba(0, 0, 0, .2);
+        background-color: var(--color-bg-dark);
+        box-shadow: 0 0 10px 5px rgba(#000, .2);
         color: #fff;
       }
     }
   }
-`;
+} `
 
 export default BaseSection

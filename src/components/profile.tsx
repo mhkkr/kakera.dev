@@ -40,7 +40,7 @@ const ProfileDetail = ({ isExcerpt = true }) => {
         </>
       ) : (
         <>
-          <p className="text">たらたらと日常やウェブ系の調べたメモを書いてます</p>
+          <p className="text"><span className="text__inner"><span className="phrase">たらたらと日常や</span><span className="phrase">ウェブ系の調べたメモを<span className="phrase"></span>書いてます</span></span></p>
           <p className="more"><Link href="/about"><a>もっと知る →</a></Link></p>
         </>
       )}
@@ -51,7 +51,7 @@ const ProfileDetail = ({ isExcerpt = true }) => {
 import styled from 'styled-components'
 import BaseSection from './section'
 
-const ProfileComponentDiv = styled(BaseSection.withComponent('div'))`
+const ProfileComponentDiv = styled(BaseSection.withComponent('div'))` && {
   margin-top: 0;
 
   .title {
@@ -60,18 +60,32 @@ const ProfileComponentDiv = styled(BaseSection.withComponent('div'))`
   aside {
     margin: 3rem 0;
   }
-`;
+} `
 
-const ProfileComponentSection = styled(BaseSection)`
+const ProfileComponentSection = styled(BaseSection.withComponent('div'))` && {
   margin-top: 0;
 
   .text {
+    align-items: center;
+    display: flex;
+    justify-content: center;
     text-align: center;
+
     &:before {
       content: "🍚～（ ";
     }
     &:after {
       content: " ）～🌏";
     }
+
+    // .text__inner
+    &__inner {
+      flex: 0 1 auto;
+    }
   }
-`;
+  .phrase {
+    @media (max-width: 559px) {
+      display: block;
+    }
+  }
+} `

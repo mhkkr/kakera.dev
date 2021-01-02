@@ -107,9 +107,9 @@ const GlobalStyle = createGlobalStyle`
     --color-font: #333;
     --color-link: #0044CC;
 
-    --color-bg-base1: #fafbff;
-    --color-bg-base2: #8b8b8b;
-
+    --color-bg-dark: #2f3437;
+    --color-bg-light-dark: #efefef;
+    
     --color-twitter: #1da1f2;
     --color-instagram: #e1306c;
     --color-googleanalytics: #E97329;
@@ -128,8 +128,6 @@ const GlobalStyle = createGlobalStyle`
     // }
   }
   body {
-    /* background: var(--color-bg-base1); */
-    /* background: radial-gradient(circle, var(--color-bg-base1) 80%, var(--color-bg-base2) 100%); */
     box-sizing: border-box;
     color: var(--color-font);
     -webkit-font-smoothing: antialiased;
@@ -140,6 +138,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-y: scroll;
     padding: 0;
     -webkit-text-size-adjust: 100%;
+    word-break: break-all;
   }
   a {
     color: var(--color-link);
@@ -147,6 +146,10 @@ const GlobalStyle = createGlobalStyle`
     &:hover {
       text-decoration: var(--text-decoration-dynamic);
     }
+  }
+
+  .phrase {
+    display: inline-block;
   }
 `
 const ThemeProvider = styled.div`

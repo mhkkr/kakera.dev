@@ -121,44 +121,68 @@ const OwnComponent = styled(BaseSection)`
     flex-wrap: wrap;
   }
   .item {
-    background-color: #fff;
-    flex: 0 1 50%;
     padding: 1.25rem 1.25rem 1.25rem calc(1.25rem + 1.5em);
-    
-    border-right: 1px solid #ccc;
-    border-bottom: 1px dashed #aaa;
-    &:first-child,
-    &:nth-child(2) {
-      border-top: 1px solid #ccc;
-    }
-    &:nth-child(odd) {
-      border-left: 1px solid #ccc;
+
+    flex: 0 1 50%;
+    @media (max-width: 559px) {
+      flex: 0 1 100%;
     }
     
-    &:nth-child(odd):not(:last-child) {
-      border-right-color: #aaa;
-      border-right-style: dashed;
-    }
-    &:nth-last-child(2),
-    &:last-child {
-      border-bottom-color: #ccc;
-      border-bottom-style: solid;
+    @media (min-width: 560px) {
+      border-right: 1px solid #ccc;
+      border-bottom: 1px dashed #aaa;
+      &:first-child,
+      &:nth-child(2) {
+        border-top: 1px solid #ccc;
+      }
+      &:nth-child(odd) {
+        border-left: 1px solid #ccc;
+      }
+      
+      &:nth-child(odd):not(:last-child) {
+        border-right-color: #aaa;
+        border-right-style: dashed;
+      }
+      &:nth-last-child(2),
+      &:last-child {
+        border-bottom-color: #ccc;
+        border-bottom-style: solid;
+      }
+
+      &:first-child {
+        border-top-left-radius: 8px 8px;
+      }
+      &:nth-child(2),
+      &:first-child:last-child {
+        border-top-right-radius: 8px 8px;
+      }
+      &:nth-last-child(2):nth-child(odd),
+      &:last-child:nth-child(odd) {
+        border-bottom-left-radius: 8px 8px;
+      }
+      &:nth-last-child(2):nth-child(even),
+      &:last-child {
+        border-bottom-right-radius: 8px 8px;
+      }
     }
 
-    &:first-child {
-      border-top-left-radius: 8px 8px;
-    }
-    &:nth-child(2),
-    &:first-child:last-child {
-      border-top-right-radius: 8px 8px;
-    }
-    &:nth-last-child(2):nth-child(odd),
-    &:last-child:nth-child(odd) {
-      border-bottom-left-radius: 8px 8px;
-    }
-    &:nth-last-child(2):nth-child(even),
-    &:last-child {
-      border-bottom-right-radius: 8px 8px;
+    @media (max-width: 559px) {
+      flex: 0 1 100%;
+      
+      border-right: 1px solid #ccc;
+      border-bottom: 1px dashed #aaa;
+      border-left: 1px solid #ccc;
+
+      &:first-child {
+        border-top-left-radius: 8px 8px;
+        border-top-right-radius: 8px 8px;
+        border-top: 1px solid #ccc;
+      }
+      &:last-child {
+        border-bottom-left-radius: 8px 8px;
+        border-bottom-right-radius: 8px 8px;
+        border-bottom-style: solid;
+      }
     }
 
     position: relative;

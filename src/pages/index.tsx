@@ -115,16 +115,16 @@ import IconSmarty from '../components/icon-smarty'
 import IconTwig from '../components/icon-twig'
 import IconHugo from '../components/icon-hugo'
 
-const PostsWallComponent = styled.div`
-  background-color: rgb(47, 52, 55);
+const PostsWallComponent = styled.div` && {
+  background-color: var(--color-bg-dark);
   color: #fff;
   margin: 6rem 0;
   overflow: hidden;
   position: relative;
   z-index: 1;
-`
+} `
 
-const IconsComponent = styled.ul`
+const IconsComponent = styled.ul` && {
   position: absolute; left: 50%; top: 50%;
   transform: translate(-50%, -50%);
   width: calc(75rem + 14em);
@@ -142,9 +142,9 @@ const IconsComponent = styled.ul`
       }
     }
   }
-`
+} `
 
-const PostsListComponent = styled(BasePostsList)`
+const PostsListComponent = styled(BasePostsList)` && {
 
   a {
     color: #fff;
@@ -170,6 +170,12 @@ const PostsListComponent = styled(BasePostsList)`
     flex: 0 0 auto;
     display: flex;
     line-height: 1;
+
+    @media (max-width: 559px) {
+      align-items: flex-end;
+      flex-direction: column;
+      padding-left: 1rem;
+    }
   }
   .label {
     flex: 0 1 auto;
@@ -177,6 +183,9 @@ const PostsListComponent = styled(BasePostsList)`
   }
   .category {
     margin-left: 1rem;
+    @media (max-width: 559px) {
+      margin: .75em 0 0 0;
+    }
 
     &[data-category="LifeLog"] {
       color: rgb(255, 115, 105);
@@ -187,6 +196,10 @@ const PostsListComponent = styled(BasePostsList)`
   }
   .tag {
     margin-left: .5rem;
+
+    @media (max-width: 559px) {
+      margin-left: 0;
+    }
 
     // .tag__label
     &__label {
@@ -202,6 +215,10 @@ const PostsListComponent = styled(BasePostsList)`
   }
   .posted {
     color: #999;
+
     margin-left: 1rem;
+    @media (max-width: 559px) {
+      margin: .75em 0 0 0;
+    }
   }
-`;
+} `
