@@ -142,9 +142,23 @@ const RenderPost = ({ post, redirect, preview }) => {
         <header className="header">
           <div className="header__inner">
             <h1 className="title">{post.Page}</h1>
-            <div className="header__items">
+            <p className="header__items">
+              {post.Tag && (
+                <span className="tag">{post.Tag.split(',').map(tag => {
+                  return (
+                    <Link href={`/blog/tags/[tagName]`} as={`/blog/tags/${tag}`} passHref prefetch={false} key={tag.trim()}>
+                      <a className="tag__label">{tag.trim()}</a>
+                    </Link>
+                  )
+                })}</span>
+              )}
+              {post.Category && (
+                <Link href={`/blog/category/[tagName]`} as={`/blog/category/${post.Category}`} passHref prefetch={false}>
+                  <a className="category" data-category={post.Category}>📂 {post.Category}</a>
+                </Link>
+              )}
               <time className="posted">{getDateStr(post.Date)}</time>
-            </div>
+            </p>
           </div>
         </header>
         <div className="body">
@@ -431,14 +445,54 @@ const ArticleComponent = styled.div` && {
 
     // .header__items
     &__items {
-      margin-top: .5em;
+      margin: .5em 0 0 -1rem;
+
+      @media (max-width: 559px) {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+      }
     }
   }
   .title {
     font-size: 2em;
   }
-  .posted {
 
+  .category {
+    margin-left: 1rem;
+    @media (max-width: 559px) {
+      margin: .75em 0 0 0;
+    }
+
+    &[data-category="LifeLog"] {
+      color: rgb(255, 115, 105);
+    }
+    &[data-category="TechBlog"] {
+      color: rgb(82, 156, 202);
+    }
+  }
+  .tag {
+    margin-left: .5rem;
+
+    // .tag__label
+    &__label {
+      background-color: rgb(80, 85, 88);
+      border-radius: .25em;
+      color: #fff;
+      display: inline-block;
+      font-size: .75em;
+      margin-left: .5rem;
+      padding: .375em .5em .377em;
+      vertical-align: top;
+    }
+  }
+  .posted {
+    color: #999;
+
+    margin-left: 1rem;
+    @media (max-width: 559px) {
+      margin: .75em 0 0 0;
+    }
   }
   .body {
     line-height: 1.9;
