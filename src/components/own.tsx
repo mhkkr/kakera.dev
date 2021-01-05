@@ -218,7 +218,6 @@ const OwnComponent = styled(BaseSection)`
 
   .status {
     margin-left: .5rem;
-    vertical-align: .065em;
 
     &::before {
       background-color: #ccc;
@@ -226,6 +225,7 @@ const OwnComponent = styled(BaseSection)`
       display: inline-block;
       content: "";
       height: .5em;
+      vertical-align: .125em;
       width: .5em;
     }
     &[title*="継続"]::before { background-color: #265f32; }
