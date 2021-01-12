@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ExtLink from './ext-link'
 
 export default ({ isExcerpt = true }) => {
   return (
@@ -26,10 +27,10 @@ const ProfileDetail = ({ isExcerpt = true }) => {
         <>
           <p className="text">
             地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
-            この先どうしていいかわからんうちに退職してしまったので、現代フロントエンドを学びなおしたく巣ごもり学習…。絶賛わからんことだらけ。<br />
-            自転車趣味を生かして、噂のお食事の配達パートナーをやってます！🚴<br />
-            このサイトではたらたらと日常（LifeLog）やウェブ系の調べたメモ（TechBlog）を書いてます📝。<br />
-            Notion Blog というサービスで作っています。カスタマイズは途中！旧ブログも移行中…。
+            現在退職中。ウェブサイトのコーディング（HTML、CSS、JavaScript、PHP）ができます。<br />
+            このサイトは Notion というツールを知り、さらにそれで Blog が作れるということで手を出してみた、という感じの場所です。<br />
+            とりあえず時間を腐らせるのも勿体ないので、カスタマイズして勉強したり、日々の出来事を毎日書くことを実践中。<ExtLink className="label" href="https://techblog.mhkkr.me/">旧ブログ</ExtLink>の内容をここに転載予定。<br />
+            自転車趣味を生かして、ときどきウーバーイーツの配達パートナーをやってます！🚴
           </p>
           {/* <aside>
             <h2>スキル</h2>
