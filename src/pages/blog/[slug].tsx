@@ -143,6 +143,12 @@ const RenderPost = ({ post, redirect, preview }) => {
           <div className="header__inner">
             <h1 className="title">{post.Page}</h1>
             <p className="header__items">
+              <time className="posted">{getDateStr(post.Date)}</time>
+              {post.Category && (
+                <Link href={`/blog/category/[tagName]`} as={`/blog/category/${post.Category}`} passHref prefetch={false}>
+                  <a className="category" data-category={post.Category}>📂 {post.Category}</a>
+                </Link>
+              )}
               {post.Tag && (
                 <span className="tag">{post.Tag.split(',').map(tag => {
                   return (
@@ -152,12 +158,6 @@ const RenderPost = ({ post, redirect, preview }) => {
                   )
                 })}</span>
               )}
-              {post.Category && (
-                <Link href={`/blog/category/[tagName]`} as={`/blog/category/${post.Category}`} passHref prefetch={false}>
-                  <a className="category" data-category={post.Category}>📂 {post.Category}</a>
-                </Link>
-              )}
-              <time className="posted">{getDateStr(post.Date)}</time>
             </p>
           </div>
         </header>
@@ -445,23 +445,32 @@ const ArticleComponent = styled.div` && {
 
     // .header__items
     &__items {
-      margin: .5em 0 0 -1rem;
-
+      display: flex;
       @media (max-width: 559px) {
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
+        display: block;
+        overflow: hidden;
       }
     }
   }
   .title {
     font-size: 2em;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
   }
 
+  .posted {
+    color: #999;
+    margin-right: auto;
+
+    @media (max-width: 559px) {
+      float: left;
+    }
+  }
   .category {
     margin-left: 1rem;
+
     @media (max-width: 559px) {
-      margin: .75em 0 0 0;
+      float: right;
     }
 
     &[data-category="LifeLog"] {
@@ -472,7 +481,13 @@ const ArticleComponent = styled.div` && {
     }
   }
   .tag {
-    margin-left: .5rem;
+    margin-left: 1rem;
+
+    @media (max-width: 559px) {
+      clear: both;
+      float: right;
+      margin: .5rem 0 0;
+    }
 
     // .tag__label
     &__label {
@@ -481,17 +496,17 @@ const ArticleComponent = styled.div` && {
       color: #fff;
       display: inline-block;
       font-size: .75em;
-      margin-left: .5rem;
-      padding: .375em .5em .377em;
+      padding: .27em .4em .231em .5em;
       vertical-align: top;
-    }
-  }
-  .posted {
-    color: #999;
 
-    margin-left: 1rem;
-    @media (max-width: 559px) {
-      margin: .75em 0 0 0;
+      &:not(:last-child) {
+        margin-right: .5rem;
+      }
+
+      @media (max-width: 559px) {
+        margin-top: .5rem;
+        padding: .15em .4em .101em .5em;
+      }
     }
   }
   .body {

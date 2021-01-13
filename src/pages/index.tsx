@@ -52,23 +52,21 @@ export default ({ posts = [] }) => {
                         {post.Page}
                       </a>
                     </Link>
-                    <p className="item__header">
-                      {post.Tag && (
-                        <span className="tag">{post.Tag.split(',').map(tag => {
-                          return (
-                            <Link href={`/blog/tags/[tagName]`} as={`/blog/tags/${tag}`} passHref prefetch={false} key={tag.trim()}>
-                              <a className="tag__label">{tag.trim()}</a>
-                            </Link>
-                          )
-                        })}</span>
-                      )}
-                      {post.Category && (
-                        <Link href={`/blog/category/[tagName]`} as={`/blog/category/${post.Category}`} passHref prefetch={false}>
-                          <a className="category" data-category={post.Category}>📂 {post.Category}</a>
-                        </Link>
-                      )}
-                      <time className="posted">{getDateStr(post.Date)}</time>
-                    </p>
+                    {post.Tag && (
+                      <span className="tag">{post.Tag.split(',').map(tag => {
+                        return (
+                          <Link href={`/blog/tags/[tagName]`} as={`/blog/tags/${tag}`} passHref prefetch={false} key={tag.trim()}>
+                            <a className="tag__label">{tag.trim()}</a>
+                          </Link>
+                        )
+                      })}</span>
+                    )}
+                    <time className="posted">{getDateStr(post.Date)}</time>
+                    {post.Category && (
+                      <Link href={`/blog/category/[tagName]`} as={`/blog/category/${post.Category}`} passHref prefetch={false}>
+                        <a className="category" data-category={post.Category}>📂 {post.Category}</a>
+                      </Link>
+                    )}
                   </li>
                 )
               })}
@@ -158,47 +156,29 @@ const PostsListComponent = styled(BasePostsList)` && {
   }
   .item {
     display: flex;
+    @media (max-width: 559px) {
+      display: block;
+    }
 
     &:nth-child(n+2) {
       border-top: 1px dashed #999;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-    }
-  }
-  .item__header {
-    align-items: center;
-    flex: 0 0 auto;
-    display: flex;
-    line-height: 1;
-
-    @media (max-width: 559px) {
-      align-items: flex-end;
-      flex-direction: column;
-      padding-left: 1rem;
+      margin-top: .75rem;
+      padding-top: .75rem;
     }
   }
   .label {
     flex: 0 1 auto;
     margin-right: auto;
   }
-  .category {
-    margin-left: 1rem;
-    @media (max-width: 559px) {
-      margin: .75em 0 0 0;
-    }
-
-    &[data-category="LifeLog"] {
-      color: rgb(255, 115, 105);
-    }
-    &[data-category="TechBlog"] {
-      color: rgb(82, 156, 202);
-    }
-  }
   .tag {
-    margin-left: .5rem;
+    flex: 0 0 auto;
+    margin-left: 1rem;
 
     @media (max-width: 559px) {
-      margin-left: 0;
+      &::after {
+        content: "\\A";
+        white-space: pre;
+      }
     }
 
     // .tag__label
@@ -208,17 +188,39 @@ const PostsListComponent = styled(BasePostsList)` && {
       color: #fff;
       display: inline-block;
       font-size: .75em;
-      margin-left: .5rem;
-      padding: .375em .5em .377em;
+      padding: .27em .4em .231em .5em;
       vertical-align: top;
+
+      &:not(:last-child) {
+        margin-right: .5rem;
+      }
+
+      @media (max-width: 559px) {
+        margin-bottom: .5rem;
+        padding: .15em .4em .101em .5em;
+      }
+    }
+  }
+  .category {
+    flex: 0 0 auto;
+    margin-left: 1rem;
+    order: 99;
+
+    &[data-category="LifeLog"] {
+      color: rgb(255, 115, 105);
+    }
+    &[data-category="TechBlog"] {
+      color: rgb(82, 156, 202);
     }
   }
   .posted {
     color: #999;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    order: -1;
 
-    margin-left: 1rem;
     @media (max-width: 559px) {
-      margin: .75em 0 0 0;
+      margin-right: 0;
     }
   }
 } `
