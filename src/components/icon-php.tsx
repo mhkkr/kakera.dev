@@ -13,7 +13,7 @@ const IconComponent = styled(BaseIconComponent)`
     text-shadow: 0px -1px 0 #fff, 0.33px -0.99px 0 #fff, 0.66px -0.66px 0 #fff, 0.99px -0.33px 0 #fff, 1px 0px 0 #fff, 0.99px 0.33px 0 #fff, 0.66px 0.66px 0 #fff, 0.33px 0.99px 0 #fff, 0px 1px 0 #fff, -0.33px 0.99px 0 #fff, -0.66px 0.66px 0 #fff, -0.99px 0.33px 0 #fff, -1px 0px 0 #fff, -0.99px -0.33px 0 #fff, -0.66px -0.66px 0 #fff, -0.33px -0.99px 0 #fff;
     color: #000;
     content: "php";
-    font-family: Impact, sans-serif;
+    font-family: "Arial Rounded MT Bold", Impact, sans-serif;
     font-style: italic;
     position: absolute;
     left: 50%;

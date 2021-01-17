@@ -6,12 +6,12 @@ import styled from 'styled-components'
 import BaseIconComponent from './icon'
 
 const IconComponent = styled(BaseIconComponent)`
-  background-color: #f7df1d ;
+  background-color: #f7df1d;
   
   &::before {
     color: #000;
     content: "JS";
-    font-family: Impact, sans-serif;
+    font-family: "Gurmukhi MN", Impact, sans-serif;
     position: absolute;
     right: 0.15625em;
     bottom: 0.15625em;
