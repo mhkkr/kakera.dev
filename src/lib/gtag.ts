@@ -1,4 +1,5 @@
-export const GA_TRACKING_ID = process.env.GOOGLE_ANALYTICS_ID
+// export const GA_TRACKING_ID = process.env.GOOGLE_ANALYTICS_ID
+export const GA_TRACKING_ID = 'G-L5MNPNPQ46'
 
 export const pageview = (path) => {
   window.gtag('config', GA_TRACKING_ID, {
