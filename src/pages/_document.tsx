@@ -1,16 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { GA_TRACKING_ID } from '../lib/gtag'
+import { existsGaId, GA_ID } from '../lib/gtag'
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="ja">
         <Head>
-          {GA_TRACKING_ID !== '' ? (
+          {existsGaId && (
             <>
               <script
                 async
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               />
               <script
                 dangerouslySetInnerHTML={{
@@ -18,13 +18,13 @@ class MyDocument extends Document {
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', '${GA_TRACKING_ID}', {
+                  gtag('config', '${GA_ID}', {
                     page_path: window.location.pathname,
                   });`,
                 }}
               />
             </>
-          ) : null}
+          )}
         </Head>
         <body>
           <Main />

@@ -11,7 +11,7 @@ import 'katex/dist/katex.css'
 export default ({ Component, pageProps }) => {
   const Router = useRouter()
   useEffect(() => {
-    if (!gtag.GA_TRACKING_ID) {
+    if (!gtag.existsGaId) {
       return
     }
 
