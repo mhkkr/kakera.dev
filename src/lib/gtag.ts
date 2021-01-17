@@ -1,5 +1,4 @@
-export const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID
-
+export const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ''
 export const existsGaId = GA_ID !== ''
 
 export const pageview = (path) => {

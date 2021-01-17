@@ -4,7 +4,7 @@ import Head from '../components/head'
 import Profile from '../components/profile'
 import Own from '../components/own'
 
-export default ({ posts = [] }) => {
+export default () => {
   return (
     <>
       <Head titlePre="あばうと" />
