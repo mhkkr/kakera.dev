@@ -26,18 +26,12 @@ const ProfileDetail = ({ isExcerpt = true }) => {
       {isExcerpt === false ? (
         <>
           <p className="text">
-            地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンドエンジニアでした。<br />
+            地方のウェブ制作会社で WordPress や EC-CUBE などを扱うフロントエンド寄りのエンジニアでした。<br />
             現在退職中。ウェブサイトのコーディング（HTML、CSS、JavaScript、PHP）ができます。<br />
             このサイトは Notion というツールを知り、さらにそれで Blog が作れるということで手を出してみた、という感じの場所です。<br />
-            とりあえず時間を腐らせるのも勿体ないので、カスタマイズして勉強したり、日々の出来事を毎日書くことを実践中。<ExtLink className="label" href="https://techblog.mhkkr.me/">旧ブログ</ExtLink>の内容をここに転載予定。<br />
+            触れる機会が少なかった Next や React などを勉強しつつ、日々の出来事を毎日書くことを実践中。<ExtLink className="label" href="https://techblog.mhkkr.me/">旧ブログ</ExtLink>の内容をここに転載予定。<br />
             自転車趣味を生かして、ときどきウーバーイーツの配達パートナーをやってます！🚴
           </p>
-          {/* <aside>
-            <h2>スキル</h2>
-            <ul>
-              <li></li>
-            </ul>
-          </aside> */}
         </>
       ) : (
         <>

@@ -3,7 +3,10 @@ import ExtLink from './ext-link'
 export default () => (
   <>
     <FooterComponent>
-      <p>このサイトは <ExtLink href="https://github.com/ijjk/notion-blog">Notion Blog</ExtLink> <span className="phrase">で管理されています！</span></p>
+      <p>
+        このサイトは、<ExtLink href="https://github.com/ijjk/notion-blog">Notion Blog</ExtLink> <span className="phrase">で管理されています！</span><br />
+        併せて Google Analytics を使用しています。 <ExtLink href="https://policies.google.com/technologies/partner-sites?hl=ja">Google ポリシーと規約</ExtLink>
+      </p>
     </FooterComponent>
   </>
 )

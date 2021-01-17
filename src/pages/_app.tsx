@@ -1,9 +1,28 @@
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
 import Header from '../components/header'
 import Footer from '../components/footer'
+
+import * as gtag from '../lib/gtag'
 
 import 'katex/dist/katex.css'
 
 export default ({ Component, pageProps }) => {
+  const Router = useRouter()
+  useEffect(() => {
+    if (!gtag.GA_TRACKING_ID) {
+      return
+    }
+
+    const handleRouteChange = (path: any) => {
+      gtag.pageview(path)
+    }
+
+    Router.events.on('routeChangeComplete', handleRouteChange)
+    return (() => Router.events.off('routeChangeComplete', handleRouteChange))
+  }, [])
+
   return (
     <ThemeProvider theme={theme === 'LIGHT' ? lightTheme : darkTheme}>
       <>
