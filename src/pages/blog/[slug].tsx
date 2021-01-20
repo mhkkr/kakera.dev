@@ -24,10 +24,10 @@ export async function getStaticProps({ params: { slug }, preview }) {
     console.log(`Failed to find post for slug: ${slug}`)
     return {
       props: {
-        redirect: '/blog',
+        redirect: '/',
         preview: false,
       },
-      unstable_revalidate: 5,
+      // unstable_revalidate: 5,
     }
   }
   const postData = await getPageData(post.id)
@@ -63,7 +63,7 @@ export async function getStaticProps({ params: { slug }, preview }) {
       post,
       preview: preview || false,
     },
-    unstable_revalidate: 10,
+    // unstable_revalidate: 30,
   }
 }
 
@@ -138,7 +138,7 @@ const RenderPost = ({ post, redirect, preview }) => {
   return (
     <>
       <Head titlePre={post.Page} />
-      <ArticleComponent>
+      <StyledArticleComponent>
         <header className="header">
           <div className="header__inner">
             <h1 className="title">{post.Page}</h1>
@@ -418,7 +418,7 @@ const RenderPost = ({ post, redirect, preview }) => {
             })}
           </div>
         </div>
-      </ArticleComponent>
+      </StyledArticleComponent>
     </>
   )
 }
@@ -427,7 +427,7 @@ export default RenderPost
 
 import styled from 'styled-components'
 
-const ArticleComponent = styled.div` && {
+const StyledArticleComponent = styled.div` && {
   background-color: var(--color-bg-light-dark);
   box-shadow: 0 10px 30px rgba(0, 0, 0, .2);
   padding-bottom: 1.5em;
