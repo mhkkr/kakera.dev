@@ -37,7 +37,7 @@ const ProfileDetail = ({ isExcerpt = true }) => {
         </>
       ) : (
         <>
-          <p className="text"><span className="text__inner"><span className="phrase">たらたらと日常や</span><span className="phrase">ウェブ系の調べたメモを<span className="phrase"></span>書いてます</span></span></p>
+          <p className="text"><span className="text__inner"><span className="phrase">aaa</span><span className="phrase">ウェブ系の調べたメモを<span className="phrase"></span>書いてます</span></span></p>
           <p className="more"><Link href="/about"><a>もっと知る →</a></Link></p>
         </>
       )}
