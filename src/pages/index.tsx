@@ -13,7 +13,7 @@ import getBlogIndex from '../lib/notion/getBlogIndex'
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
 
-  const posts: any[] = Object.keys(postsTable)
+  const _posts: any[] = Object.keys(postsTable)
     .map(slug => {
       const post = postsTable[slug]
       if (!preview && postIsPublished(post)) {
@@ -22,6 +22,8 @@ export async function getStaticProps({ preview }) {
       return null
     })
     .filter(Boolean)
+  
+  const posts = _posts.sort((a, b) => b.Date - a.Date)
 
   return {
     props: {
