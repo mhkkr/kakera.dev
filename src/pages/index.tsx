@@ -4,11 +4,7 @@ import Head from '../components/head'
 import Profile from '../components/profile'
 import Own from '../components/own'
 
-import {
-  getBlogLink,
-  getDateStr,
-  postIsPublished,
-} from '../lib/blog-helpers'
+import { getBlogLink, getDateStr, postIsPublished } from '../lib/blog-helpers'
 import getBlogIndex from '../lib/notion/getBlogIndex'
 export async function getStaticProps({ preview }) {
   const postsTable = await getBlogIndex()
@@ -22,7 +18,7 @@ export async function getStaticProps({ preview }) {
       return null
     })
     .filter(Boolean)
-  
+
   const posts = _posts.sort((a, b) => b.Date - a.Date)
 
   return {
@@ -38,7 +34,7 @@ export default ({ posts = [] }) => {
   return (
     <>
       <Head />
-      <Profile isExcerpt={true} />
+      {/* <Profile isExcerpt={true} />
 
       {posts.length !== 0 && (
         <PostsWallComponent>
@@ -93,7 +89,7 @@ export default ({ posts = [] }) => {
         </PostsWallComponent>
       )}
 
-      <Own />
+      <Own /> */}
     </>
   )
 }
@@ -115,114 +111,121 @@ import IconSmarty from '../components/icon-smarty'
 import IconTwig from '../components/icon-twig'
 import IconHugo from '../components/icon-hugo'
 
-const PostsWallComponent = styled.div` && {
-  background-color: var(--color-bg-dark);
-  color: #fff;
-  margin: 6rem 0;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-} `
-
-const IconsComponent = styled.ul` && {
-  position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(75rem + 14em);
-  z-index: -1;
-
-  li {
-    font-size: 2em;
-    margin: 1em 0;
-
-    &:nth-child(even) {
-      overflow: hidden;
-      
-      span {
-        float: right;
-      }
-    }
-  }
-} `
-
-const PostsListComponent = styled(BasePostsList)` && {
-
-  a {
+const PostsWallComponent = styled.div`
+  && {
+    background-color: var(--color-bg-dark);
     color: #fff;
+    margin: 6rem 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
   }
+`
 
-  .title {
-    margin-bottom: 2.5rem;
-  }
+const IconsComponent = styled.ul`
+  && {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(75rem + 14em);
+    z-index: -1;
 
-  .list {
-  }
-  .item {
-    display: flex;
-    @media (max-width: 559px) {
-      display: block;
-    }
+    li {
+      font-size: 2em;
+      margin: 1em 0;
 
-    &:nth-child(n+2) {
-      border-top: 1px dashed #999;
-      margin-top: .75rem;
-      padding-top: .75rem;
-    }
-  }
-  .label {
-    flex: 0 1 auto;
-    margin-right: auto;
-  }
-  .tag {
-    flex: 0 0 auto;
-    margin-left: 1rem;
+      &:nth-child(even) {
+        overflow: hidden;
 
-    @media (max-width: 559px) {
-      &::after {
-        content: "\\A";
-        white-space: pre;
+        span {
+          float: right;
+        }
       }
     }
+  }
+`
 
-    // .tag__label
-    &__label {
-      background-color: rgb(80, 85, 88);
-      border-radius: .25em;
+const PostsListComponent = styled(BasePostsList)`
+  && {
+    a {
       color: #fff;
-      display: inline-block;
-      font-size: .75em;
-      padding: .27em .4em .231em .5em;
-      vertical-align: top;
+    }
 
-      &:not(:last-child) {
-        margin-right: .5rem;
+    .title {
+      margin-bottom: 2.5rem;
+    }
+
+    .list {
+    }
+    .item {
+      display: flex;
+      @media (max-width: 559px) {
+        display: block;
       }
+
+      &:nth-child(n + 2) {
+        border-top: 1px dashed #999;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+      }
+    }
+    .label {
+      flex: 0 1 auto;
+      margin-right: auto;
+    }
+    .tag {
+      flex: 0 0 auto;
+      margin-left: 1rem;
 
       @media (max-width: 559px) {
-        margin-bottom: .5rem;
-        padding: .15em .4em .101em .5em;
+        &::after {
+          content: '\\A';
+          white-space: pre;
+        }
+      }
+
+      // .tag__label
+      &__label {
+        background-color: rgb(80, 85, 88);
+        border-radius: 0.25em;
+        color: #fff;
+        display: inline-block;
+        font-size: 0.75em;
+        padding: 0.27em 0.4em 0.231em 0.5em;
+        vertical-align: top;
+
+        &:not(:last-child) {
+          margin-right: 0.5rem;
+        }
+
+        @media (max-width: 559px) {
+          margin-bottom: 0.5rem;
+          padding: 0.15em 0.4em 0.101em 0.5em;
+        }
+      }
+    }
+    .category {
+      flex: 0 0 auto;
+      margin-left: 1rem;
+      order: 99;
+
+      &[data-category='LifeLog'] {
+        color: rgb(255, 115, 105);
+      }
+      &[data-category='TechBlog'] {
+        color: rgb(82, 156, 202);
+      }
+    }
+    .posted {
+      color: #999;
+      flex: 0 0 auto;
+      margin-right: 1rem;
+      order: -1;
+
+      @media (max-width: 559px) {
+        margin-right: 0;
       }
     }
   }
-  .category {
-    flex: 0 0 auto;
-    margin-left: 1rem;
-    order: 99;
-
-    &[data-category="LifeLog"] {
-      color: rgb(255, 115, 105);
-    }
-    &[data-category="TechBlog"] {
-      color: rgb(82, 156, 202);
-    }
-  }
-  .posted {
-    color: #999;
-    flex: 0 0 auto;
-    margin-right: 1rem;
-    order: -1;
-
-    @media (max-width: 559px) {
-      margin-right: 0;
-    }
-  }
-} `
+`

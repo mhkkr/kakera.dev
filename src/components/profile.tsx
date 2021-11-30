@@ -30,8 +30,8 @@ const ProfileDetail = ({ isExcerpt = true }) => {
             現在退職中。ウェブサイトのコーディング（HTML、CSS、JavaScript、PHP）を10年頑張りました。
             <br />
             実績はお問い合わせ（
-            <ExtLink className="label" href="https://twitter.com/aottwenty">
-              @aottwenty
+            <ExtLink className="label" href="https://twitter.com/kakera_dev">
+              @kakera_dev
             </ExtLink>
             ）ください！
             <br />
