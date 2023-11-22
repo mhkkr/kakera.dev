@@ -2,41 +2,55 @@
 import Layout from '../layouts/Layout.astro';
 
 import Section from '../components/Section.astro';
-import Kao from '../components/Kao.astro';
 
-import AnnictThumb from '../../public/logo_annict.png';
-import NicovideoThumb from '../../public/logo_nicovideo.png';
+import Avatar from '../../public/avatar.webp';
+import XThumb from '../../public/logo_x.svg';
+import AnnictThumb from '../../public/logo_annict.webp';
+import AnimitaThumb from '../../public/logo_animita.svg';
+import NicovideoThumb from '../../public/logo_nicovideo.webp';
+import BgPhoto from '../../public/BlueProtocol_20230728_021113.webp';
 ---
 
-<Layout title="kakera.dev">
-	<main class="flex flex-col gap-20 items-center justify-center min-h-screen">
-		<header>
-			<Kao tag="h1" />
-			<p>test</p>
-		</header>
-		<div class="flex flex-col gap-8 max-w-lg px-4">
-			<Section title="Annict" description="アニメ見た記録を付けてます！" url="https://annict.com/@kakera" thumb={AnnictThumb}>
-				<aside class="border border-stone-700 rounded-md py-2 px-3">
-					<h3 class="font-bold text-lg">
-						<a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">アニみた</a>
-					</h3>
-					<p>スマホで手軽に記録をつけれるように、それから配信サイトで今すぐ見れるアニメを分かりやすく把握する目的で Annict のユーザークライアントを作りました。</p>
-					<ul class="list-disc ml-8">
-						<li><a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">アプリ</a></li>
-						<li><a href="https://annict.com/userland/projects/178" target="_blank" rel="noopener noreferrer">紹介ページ</a></li>
-					</ul>
-				</aside>
-			</Section>
-			<Section title="ニコニコ動画" description="プレイ動画をたまに投稿してます！" url="https://www.nicovideo.jp/user/136915/video" thumb={NicovideoThumb}>
-				<ul class="list-disc ml-8">
-					<li><a href="https://www.nicovideo.jp/user/136915/series/424124" target="_blank" rel="noopener noreferrer">BLUE PROTOCOL（現行プレイ中）</a></li>
-					<li><a href="https://www.nicovideo.jp/user/136915/series/424125" target="_blank" rel="noopener noreferrer">PSO2</a></li>
-					<li><a href="https://www.nicovideo.jp/user/136915/series/424126" target="_blank" rel="noopener noreferrer">飛天online（サービス終了）</a></li>
-				</ul>
-			</Section>
+<Layout>
+	<main>
+		<figure class="lg:fixed relative left-0 top-0 bottom-0 lg:w-1/2 lg:rounded-[0_0_12.5%_0] lg:overflow-hidden lg:shadow-2xl">
+			<img class="object-cover lg:object-[right_40%_top_0] h-full" src={BgPhoto.src} width={BgPhoto.width} height={BgPhoto.height} alt="">
+			<figcaption class="absolute left-4 lg:bottom-4 lg:top-auto top-4 right-[12.5%] text-xs text-white">©2019 Bandai Namco Online Inc.　©2019 Bandai Namco Studios Inc.</figcaption>
+		</figure>
+		<div class="relative z-10 lg:pl-[50%] lg:min-h-screen flex flex-col">
+			<header class="lg:-ml-10 lg:mt-8 -mt-10 flex lg:flex-row flex-col gap-4 items-center">
+				<div class="w-20 h-20 p-2 bg-white rounded-full overflow-hidden shadow-lg">
+					<img src={Avatar.src} width={Avatar.width} height={Avatar.height} alt="kakera avatar" />
+				</div>
+				<h1 class="font-bold">kakera</h1>
+			</header>
+			<div class="flex-1 flex items-center justify-center lg:px-8 px-4 lg:my-8 my-12">
+				<div class="flex flex-col lg:gap-16 gap-12 max-w-lg">
+					<Section title="Twitter" description="日常を低頻度でお届け！" url="https://twitter.com/kakera_dev" thumb={XThumb} />
+					<Section title="Annict" description="アニメ見た記録を付けてます！" url="https://annict.com/@kakera" thumb={AnnictThumb}>
+						<aside class="border border-stone-700 rounded-md py-2 px-3">
+							<h3 class="font-bold text-lg">
+								<a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">
+									<img class="inline align-baseline w-[1em]" src={AnimitaThumb.src} width={AnimitaThumb.width} height={AnimitaThumb.height} alt="" />
+									アニみた
+								</a>
+							</h3>
+							<p>加入している配信サイトで今すぐ見れるアニメを分かりやすく把握する目的で Annict のユーザークライアントを作りました。スマホで快適に記録をつけれるように意識しています。</p>
+							<ul class="list-disc ml-8 mt-2">
+								<li><a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">アプリ</a></li>
+								<li><a href="https://annict.com/userland/projects/178" target="_blank" rel="noopener noreferrer">紹介ページ</a></li>
+							</ul>
+						</aside>
+					</Section>
+					<Section title="ニコニコ動画" description="プレイ動画をたまに投稿してます！" url="https://www.nicovideo.jp/user/136915/video" thumb={NicovideoThumb}>
+						<ul class="list-disc ml-8">
+							<li><a href="https://www.nicovideo.jp/user/136915/series/424124" target="_blank" rel="noopener noreferrer">BLUE PROTOCOL（現行プレイ中）</a></li>
+							<li><a href="https://www.nicovideo.jp/user/136915/series/424125" target="_blank" rel="noopener noreferrer">PSO2</a></li>
+							<li><a href="https://www.nicovideo.jp/user/136915/series/424126" target="_blank" rel="noopener noreferrer">飛天online（サービス終了）</a></li>
+						</ul>
+					</Section>
+				</div>
+			</div>
 		</div>
-		<footer>
-			<Kao tag="p" />
-		</footer>
 	</main>
 </Layout>
