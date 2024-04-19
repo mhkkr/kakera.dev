@@ -1,0 +1,24 @@
+---
+import Avatar from '../../public/avatar.webp';
+
+interface Props {
+	isLink?: boolean;
+}
+const { isLink = true } = Astro.props;
+---
+
+{isLink ? 
+	<a class="inline-flex lg:flex-row flex-col gap-4 items-center align-text-bottom group" href="/">
+		<div class="w-20 h-20 p-2 bg-white rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl group-hover:rounded-bl-none transition-all">
+			<img src={Avatar.src} width={Avatar.width} height={Avatar.height} alt="kakera avatar" />
+		</div>
+		<p class="font-bold">kakera</p>
+	</a>
+	:
+	<div class="inline-flex lg:flex-row flex-col gap-4 items-center align-text-bottom">
+		<div class="w-20 h-20 p-2 bg-white rounded-full overflow-hidden shadow-lg">
+			<img src={Avatar.src} width={Avatar.width} height={Avatar.height} alt="kakera avatar" />
+		</div>
+		<p class="font-bold">kakera</p>
+	</div>
+}

@@ -1,0 +1,42 @@
+---
+import type { NamedEnemyType } from '@/types/blueprotocol/namedEnemy';
+
+import NamedEnemyConditionIcon from '@/components/blueprotocol/NamedEnemyConditionIcon';
+import NamedEnemyCounter from '@/components/blueprotocol/NamedEnemyCounter';
+import namedEnemyThumbs from '@/libs/blueprotocol/namedEnemyThumbs';
+
+interface Props {
+	namedEnemy: NamedEnemyType;
+}
+const { namedEnemy } = Astro.props;
+
+const tagStyle = 'bg-white py-1 w-12 leading-none rounded-full text-xs text-center';
+---
+
+<div class="flex h-full p-4 rounded-lg bg-stone-200 transition-all hover:shadow-xl">
+	<div class="w-64">
+		<div class="flex gap-2 items-center">
+			<div class="w-12 h-12">
+				{namedEnemyThumbs[namedEnemy.id] ?
+					<img src={namedEnemyThumbs[namedEnemy.id].src} alt="" loading="lazy" /> :
+					<img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 630%22><text x=%2250%%22 y=%2250%%22 style=%22dominant-baseline:central;text-anchor:middle;font-size:13em;%22>No Image</text></svg>" alt="" />
+				}
+			</div>
+			<div>
+				<p class="font-bold">{namedEnemy.name}</p>
+				<div class="mt-1 flex gap-2 items-center text-sm">
+					<span class={`${tagStyle}`} title="レベル">LV{namedEnemy.level ? namedEnemy.level : '？'}</span>
+					<span class={`${tagStyle} ${'夜' === namedEnemy.spawnPeriod && '!bg-gray-700 text-white'} ${'昼' === namedEnemy.spawnPeriod && '!bg-orange-400 text-white'}`} title="時間帯">{namedEnemy.spawnPeriod}</span>
+					<span class={`${tagStyle}`} title="クールタイム">{namedEnemy.coolTime ? namedEnemy.coolTime : '？'}分</span>
+				</div>
+			</div>
+		</div>
+		<ul class="mt-4 flex flex-col gap-1 text-sm" title="条件">
+			{namedEnemy.spawnConditions.map(condition => <li class="flex gap-1 items-center"><NamedEnemyConditionIcon condition={condition} />{condition}</li>)}
+		</ul>
+		{namedEnemy.notes && <p class="mt-4 text-sm">※{namedEnemy.notes}</p>}
+	</div>
+	<div class="w-36 pl-4 -my-4 -mr-4 rounded-r-lg overflow-hidden">
+		<NamedEnemyCounter client:load namedEnemy={namedEnemy} />
+	</div>
+</div>

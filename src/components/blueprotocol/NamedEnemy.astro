@@ -1,0 +1,58 @@
+---
+import type { NamedEnemyType } from '@/types/blueprotocol/namedEnemy';
+import namedEnemies from '@/libs/blueprotocol/namedEnemy.json'
+import areas from '@/libs/blueprotocol/area.json'
+import regions from '@/libs/blueprotocol/region.json'
+
+import NamedEnemyDefeat from '@/components/blueprotocol/NamedEnemyDefeat.astro';
+
+import dungeonIcon from '../../../public/blueprotocol/dungeon.webp';
+
+const groups: { area: string, region: string, namedEnemies: NamedEnemyType[] }[] = [
+	{ area: '全域', region: '', namedEnemies: [] },
+	{ area: '期間限定', region: '', namedEnemies: [] }
+];
+namedEnemies.forEach(namedEnemy => {
+	// ネームドエネミーの地名と広域地帯名が空なら全域グループに振り分ける
+	if ('' === namedEnemy.area && '' === namedEnemy.region) {
+		const groupX = groups.find(group => '全域' === group.area);
+		groupX?.namedEnemies.push(namedEnemy);
+	} else
+	// ネームドエネミーが期間限定なら期間限定グループに振り分ける
+	if (namedEnemy.limitedFlag) {
+		const groupY = groups.find(group => '期間限定' === group.area);
+		groupY?.namedEnemies.push(namedEnemy);
+	} else {
+		// 海鳴りの草原やアンドラ盆地といった地名グループを作り振り分ける
+		if (!groups.find(group => namedEnemy.area === group.area)) {
+			groups.push({ area: namedEnemy.area, region: namedEnemy.region, namedEnemies: [] });
+		}
+		const group = groups.find(group => namedEnemy.area === group.area);
+		group?.namedEnemies.push(namedEnemy);
+	}
+})
+---
+
+<header class="mb-6">
+	<h2 class="text-xl font-bold">ネームドエネミー討滅者カウンター</h2>
+	<p class="mt-1 text-sm">入力したデータはブラウザに保存され、ページを閉じても維持されます。（リポップまでのカウントダウンは保存されません）</p>
+	<p class="mt-1 text-xs">※自分用に作ったので突然取りやめるかもしれません。※クッキーを削除するとデータが消えるので注意してください。</p>
+</header>
+{groups.map(group => {
+	return (
+		<div class="flex mt-6">
+			<div class="flex flex-col gap-2 items-center justify-center w-48">
+				{group.area && <p class="flex gap-1 items-center">
+					{'dungeon' === areas.find(area => area.name === group.area)?.type && <img class="w-4" src={dungeonIcon.src} alt="">}
+					{group.area}
+				</p>}
+				{group.region && <p class={`rounded-lg px-2 py-0.5 text-white text-xs ${regions.find(region => region.name === group.region)?.bgColor}`}>{group.region}</p>}
+			</div>
+			<div class={`flex-1 pl-6 border-l ${regions.find(region => region.name === group.region)?.borderColor ?? 'border-gray-500 '}`}>
+				<div class="flex gap-4 flex-wrap">
+					{group.namedEnemies.map(namedEnemy => <NamedEnemyDefeat namedEnemy={namedEnemy} />)}
+				</div>
+			</div>
+		</div>
+	)
+})}

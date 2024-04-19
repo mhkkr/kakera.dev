@@ -1,0 +1,33 @@
+---
+import Layout from '@/layouts/Layout.astro';
+
+import Logo from '@/components/Logo.astro';
+
+import RegnusClock from '@/components/blueprotocol/RegnusClock';
+import NamedEnemy from '@/components/blueprotocol/NamedEnemy.astro';
+
+import Copyright from '@/components/blueprotocol/Copyright.astro';
+---
+
+<Layout>
+	<div class="min-h-screen flex flex-col lg:px-8 px-4">
+		<header class="my-8">
+			<Logo />
+		</header>
+		<main class="flex-1 flex flex-col">
+			<div class="flex-1">
+				<h1 class="mb-8 text-3xl font-extrabold">BlueProtocol</h1>
+				<aside class="mt-8">
+					<RegnusClock client:load />
+					TODO:※スクロールしても表示を固定するようにする
+				</aside>
+				<section class="mt-8">
+					<NamedEnemy />
+				</section>
+			</div>
+			<footer class="my-8">
+				<Copyright />
+			</footer>
+		</main>
+	</div>
+</Layout>
