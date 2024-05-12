@@ -14,13 +14,18 @@
     "@astrojs/react": "^3.3.0",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource/roboto": "^5.0.12",
+    "@nanostores/preact": "^0.5.1",
+    "@nanostores/react": "^0.7.2",
     "@types/react": "^18.2.79",
     "@types/react-dom": "^18.2.25",
     "astro": "^4.6.3",
+    "nanostores": "^0.10.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
+    "recoil": "^0.7.7",
     "tailwindcss": "^3.4.3",
+    "tesseract.js": "^5.1.0",
     "typescript": "^5.4.5"
   }
 }

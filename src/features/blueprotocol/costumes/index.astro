@@ -1,0 +1,22 @@
+---
+import Costumes from './components/Costumes'
+import CurrentCostumeDetail from './components/CurrentCostumeDetail'
+import CurrentCostumeImage from './components/CurrentCostumeImage'
+---
+
+<div class="relative grid grid-cols-1 items-center h-svh p-4">
+  <div class="grid grid-cols-3 gap-4 max-w-screen-lg w-full mx-auto">
+    <div class="col-span-1 flex flex-col">
+      <div class="flex-grow">
+        <Costumes client:load />
+      </div>
+      <div class="flex-none">
+        <CurrentCostumeDetail client:load />
+      </div>
+    </div>
+    <div class="col-span-2 relative">
+      <CurrentCostumeImage client:load />
+      <footer class="absolute right-4 top-4 text-xs">©2019 Bandai Namco Online Inc. ©2019 Bandai Namco Studios Inc.</footer>
+    </div>
+  </div>
+</div>

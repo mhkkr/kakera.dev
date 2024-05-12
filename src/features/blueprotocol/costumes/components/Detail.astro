@@ -1,0 +1,38 @@
+---
+import Tesseract from 'tesseract.js';
+
+// 画像のパス
+import アーキテクト from './../images/アーキテクト.webp'
+
+// Tesseract.jsで画像からテキストを抽出
+Tesseract.recognize(
+  アーキテクト.src, // 画像のパス
+  'jpn', // 言語（英語を指定）
+  { logger: m => console.log(m) } // ロガーを設定（省略可）
+).then(({ data: { text } }) => {
+  console.log('Extracted Text:', text); // 抽出されたテキストを出力
+}).catch(error => {
+  console.error('Error:', error); // エラーが発生した場合はエラーメッセージを出力
+});
+---
+
+<dl class="h-[calc(8em_+_2em_+_4em)] m-4">
+  <dt>aaa</dt>
+  <dd>
+    <ul>
+      <li>aaaa</li>
+      <li>aaaa</li>
+      <li>aaaa</li>
+      <li>aaaa</li>
+    </ul>
+  </dd>
+  <dt>aaa</dt>
+  <dd>
+    <ul>
+      <li>aaaa</li>
+      <li>aaaa</li>
+      <li>aaaa</li>
+      <li>aaaa</li>
+    </ul>
+  </dd>
+</dl>

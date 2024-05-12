@@ -1,36 +1,8 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import アーキテクト from '../../../features/blueprotocol/costumes/images/アーキテクト.webp';
-import アーバンヌル_ウォッチャーズボン from '../../../features/blueprotocol/costumes/images/アーバンヌル_ウォッチャーズボン.webp';
-import ウォッチャー_トラッドボトムポーズ from '../../../features/blueprotocol/costumes/images/ウォッチャー_トラッドボトムポーズ.webp';
-import ウォッチャー_トラベラーパンツ from '../../../features/blueprotocol/costumes/images/ウォッチャー_トラベラーパンツ.webp';
-import キャヴァリアメイル_スプリントパンツ from '../../../features/blueprotocol/costumes/images/キャヴァリアメイル_スプリントパンツ.webp';
-import スタイリッシュアーマー_月下装 from '../../../features/blueprotocol/costumes/images/スタイリッシュアーマー_月下装.webp';
-import スポーティ_スタイリッシュズボン from '../../../features/blueprotocol/costumes/images/スポーティ_スタイリッシュズボン.webp';
-import スポーティ_異国風 from '../../../features/blueprotocol/costumes/images/スポーティ_異国風.webp';
-import ポワリエ from '../../../features/blueprotocol/costumes/images/ポワリエ.webp';
-import ミメシスジャケット_スプリントパンツ from '../../../features/blueprotocol/costumes/images/ミメシスジャケット_スプリントパンツ.webp';
-import 異国風_ミメシスボトム from '../../../features/blueprotocol/costumes/images/異国風_ミメシスボトム.webp';
-import 異国風_ミルレーネ from '../../../features/blueprotocol/costumes/images/異国風_ミルレーネ.webp';
-import 月下装_ティグリス from '../../../features/blueprotocol/costumes/images/月下装_ティグリス.webp';
-import メイド from '../../../features/blueprotocol/costumes/images/メイド.webp';
+import Layout from './../../../layouts/Layout.astro'
+import Costumes from './../../../features/blueprotocol/costumes/index.astro'
 ---
 
-<Layout>
-  <ul class="grid grid-cols-3">
-    <li><img class="" src={アーキテクト.src} width={アーキテクト.width} height={アーキテクト.height} alt=""></li>
-    <li><img class="" src={アーバンヌル_ウォッチャーズボン.src} width={アーバンヌル_ウォッチャーズボン.width} height={アーバンヌル_ウォッチャーズボン.height} alt=""></li>
-    <li><img class="" src={ウォッチャー_トラッドボトムポーズ.src} width={ウォッチャー_トラッドボトムポーズ.width} height={ウォッチャー_トラッドボトムポーズ.height} alt=""></li>
-    <li><img class="" src={ウォッチャー_トラベラーパンツ.src} width={ウォッチャー_トラベラーパンツ.width} height={ウォッチャー_トラベラーパンツ.height} alt=""></li>
-    <li><img class="" src={キャヴァリアメイル_スプリントパンツ.src} width={キャヴァリアメイル_スプリントパンツ.width} height={キャヴァリアメイル_スプリントパンツ.height} alt=""></li>
-    <li><img class="" src={スタイリッシュアーマー_月下装.src} width={スタイリッシュアーマー_月下装.width} height={スタイリッシュアーマー_月下装.height} alt=""></li>
-    <li><img class="" src={スポーティ_スタイリッシュズボン.src} width={スポーティ_スタイリッシュズボン.width} height={スポーティ_スタイリッシュズボン.height} alt=""></li>
-    <li><img class="" src={スポーティ_異国風.src} width={スポーティ_異国風.width} height={スポーティ_異国風.height} alt=""></li>
-    <li><img class="" src={ポワリエ.src} width={ポワリエ.width} height={ポワリエ.height} alt=""></li>
-    <li><img class="" src={ミメシスジャケット_スプリントパンツ.src} width={ミメシスジャケット_スプリントパンツ.width} height={ミメシスジャケット_スプリントパンツ.height} alt=""></li>
-    <li><img class="" src={異国風_ミメシスボトム.src} width={異国風_ミメシスボトム.width} height={異国風_ミメシスボトム.height} alt=""></li>
-    <li><img class="" src={異国風_ミルレーネ.src} width={異国風_ミルレーネ.width} height={異国風_ミルレーネ.height} alt=""></li>
-    <li><img class="" src={月下装_ティグリス.src} width={月下装_ティグリス.width} height={月下装_ティグリス.height} alt=""></li>
-    <li><img class="" src={メイド.src} width={メイド.width} height={メイド.height} alt=""></li>
-  </ul>
+<Layout title="ブルプロ コーディネート">
+  <Costumes />
 </Layout>
