@@ -23,7 +23,7 @@ export default function Costumes() {
           <li key={costume.title + index}>
             <button onClick={() => update(costume)} type="button">
               <img
-                src={`/src/features/blueprotocol/costumes/images/${costume.title}.webp`}
+                src={`/images/blueprotocol/costumes/${costume.title}.webp`}
                 alt={costume.title}
                 title={costume.title}
               />
