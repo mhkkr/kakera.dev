@@ -17,7 +17,7 @@ export default function Costumes() {
   }
 
   return (
-    <ul className="grid grid-cols-5 gap-2 [&_li]:relative [&_li]:overflow-hidden [&_li]:rounded-lg [&_li]:border [&_li]:border-gray-400 [&_li]:aspect-[4_/_5] [&_img]:absolute [&_img]:left-[-486%] [&_img]:top-[-62%] [&_img]:max-w-[800%]">
+    <ul className="grid grid-cols-4 gap-2 [&_li]:relative [&_li]:overflow-hidden [&_li]:rounded-lg [&_li]:border [&_li]:border-gray-400 [&_li]:aspect-[4_/_5] [&_img]:absolute [&_img]:left-[-486%] [&_img]:top-[-62%] [&_img]:max-w-[800%]">
       {costumes.map((costume, index) => {
         return (
           <li key={costume.title + index}>
