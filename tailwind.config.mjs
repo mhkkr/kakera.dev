@@ -4,8 +4,10 @@ export default {
 	theme: {
     extend: {
       fontFamily: {
-        // sans: ['Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'sans-serif'],
 				roboto: ['Roboto', 'sans-serif']
+      },
+      zIndex: {
+        header: 100
       }
     }
 	},

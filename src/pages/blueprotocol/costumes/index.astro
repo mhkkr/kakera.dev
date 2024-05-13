@@ -1,8 +1,11 @@
 ---
-import Layout from './../../../layouts/Layout.astro'
+import Root from '../../../layouts/Root.astro'
+import Layout from '../../../layouts/Layout.astro'
 import Costumes from './../../../features/blueprotocol/costumes/index.astro'
 ---
 
-<Layout title="ブルプロ コーディネート">
-  <Costumes />
-</Layout>
+<Root title="ブルプロ コーディネート">
+  <Layout>
+    <Costumes />
+  </Layout>
+</Root>

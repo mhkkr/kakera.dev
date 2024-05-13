@@ -1,10 +1,11 @@
 ---
 import Costumes from './components/Costumes'
-import CurrentCostumeDetail from './components/CurrentCostumeDetail'
-import CurrentCostumeImage from './components/CurrentCostumeImage'
+import CostumeDetail from './components/CostumeDetail'
+import CostumeImage from './components/CostumeImage'
+import Lighting from './components/Lighting'
 ---
 
-<div class="relative grid grid-cols-1 items-center h-svh p-4">
+<div class="relative grid grid-cols-1 items-center min-h-svh py-32 px-4">
   <div class="grid grid-cols-3 gap-4 max-w-screen-md w-full mx-auto">
     <div class="col-span-1 flex flex-col">
       <div class="flex-grow">
@@ -15,9 +16,12 @@ import CurrentCostumeImage from './components/CurrentCostumeImage'
       </div>
     </div>
     <div class="col-span-2 relative">
-      <CurrentCostumeImage client:load />
+      <CostumeImage client:load />
+      <div class="absolute w-4 left-4 top-4">
+        <Lighting client:load />
+      </div>
       <div class="absolute w-72 left-[calc(100%_-_5rem)] top-1/2 -translate-y-1/2">
-        <CurrentCostumeDetail client:load />
+        <CostumeDetail client:load />
       </div>
     </div>
   </div>
