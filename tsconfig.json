@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
+      "@bpCostumes/*": ["src/features/blueprotocol/costumes/*"],
     }
   }
 }

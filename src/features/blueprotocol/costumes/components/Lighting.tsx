@@ -1,17 +1,17 @@
-import { useStore } from '@nanostores/react'
-import { currentLighting } from './../stores/currentLightingStore'
+import { useStore } from '@nanostores/react';
+import { currentLighting } from '@bpCostumes/stores/currentLightingStore';
 
-import type { IconType } from 'react-icons'
-import { PiSunHorizon } from 'react-icons/pi'
-import { BsSun } from 'react-icons/bs'
-import { BsFillSunFill } from 'react-icons/bs'
-import { GiStripedSun } from 'react-icons/gi'
-import { IoMoon } from 'react-icons/io5'
+import type { IconType } from 'react-icons';
+import { PiSunHorizon } from 'react-icons/pi';
+import { BsSun } from 'react-icons/bs';
+import { BsFillSunFill } from 'react-icons/bs';
+import { GiStripedSun } from 'react-icons/gi';
+import { IoMoon } from 'react-icons/io5';
 
 const lightings: {
-  id: 'dawn' | 'morning' | 'afternoon' | 'evening' | 'night',
-  label: string,
-  icon: IconType
+  id: 'dawn' | 'morning' | 'afternoon' | 'evening' | 'night';
+  label: string;
+  icon: IconType;
 }[] = [
   {
     id: 'dawn',
@@ -38,10 +38,10 @@ const lightings: {
     label: '夜',
     icon: IoMoon
   }
-]
+];
 
 export default function Lighting() {
-  const $currentLighting = useStore(currentLighting)
+  const $currentLighting = useStore(currentLighting);
 
   return (
     <ul className="grid grid-cols-1 gap-1 text-white">
@@ -55,5 +55,5 @@ export default function Lighting() {
         )
       })}
     </ul>
-  )
+  );
 }

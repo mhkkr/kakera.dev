@@ -1,20 +1,20 @@
 ---
-import Root from '../layouts/Root.astro'
+import Root from '@/layouts/Root.astro';
 
-import Logo from './../components/Logo.astro'
-import Section from './../components/Section.astro'
+import Logo from '@/components/Logo.astro';
+import Section from '@/components/Section.astro';
 
-import XThumb from './../../public/images/logo_x.svg'
-import AnnictThumb from './../../public/images/logo_annict.webp'
-import AnimitaThumb from './../../public/images/logo_animita.svg'
-import NicovideoThumb from './../../public/images/logo_nicovideo.webp'
-import BgPhoto from './../../public/images/BlueProtocol_20230728_021113.webp'
+import XThumb from '/public/images/logo_x.svg';
+import AnnictThumb from '/public/images/logo_annict.webp';
+import AnimitaThumb from '/public/images/logo_animita.svg';
+import NicovideoThumb from '/public/images/logo_nicovideo.webp';
+import BgPhoto from '/public/images/BlueProtocol_20230728_021113.webp';
 ---
 
 <Root>
 	<figure class="lg:fixed relative left-0 top-0 bottom-0 lg:w-1/2 lg:rounded-[0_0_12.5%_0] lg:overflow-hidden lg:shadow-2xl">
 		<img class="object-cover lg:object-[right_40%_top_0] h-full" src={BgPhoto.src} width={BgPhoto.width} height={BgPhoto.height} alt="">
-		<figcaption class="absolute left-4 lg:bottom-4 lg:top-auto top-4 right-[12.5%] text-xs text-white">©2019 Bandai Namco Online Inc.　©2019 Bandai Namco Studios Inc.</figcaption>
+		<figcaption class="absolute left-4 lg:bottom-4 lg:top-auto top-4 right-[12.5%] text-xs text-white">©2019 Bandai Namco Online Inc. ©2019 Bandai Namco Studios Inc.</figcaption>
 	</figure>
 	<div class="relative z-10 lg:pl-[50%] lg:min-h-screen flex flex-col">
 		<header class="lg:-ml-10 lg:mt-8 -mt-10 flex lg:flex-row flex-col gap-4 items-center">

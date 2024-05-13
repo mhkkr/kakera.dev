@@ -1,3 +1,3 @@
-import { atom } from 'nanostores'
+import { atom } from 'nanostores';
 
-export const currentLighting = atom<'dawn' | 'morning' | 'afternoon' | 'evening' | 'night'>('afternoon')
+export const currentLighting = atom<'dawn' | 'morning' | 'afternoon' | 'evening' | 'night'>('afternoon');

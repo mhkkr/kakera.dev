@@ -1,10 +1,10 @@
-import { useStore } from '@nanostores/react'
-import { currentCostume } from './../stores/currentCostumeStore'
-import { currentLighting } from './../stores/currentLightingStore'
+import { useStore } from '@nanostores/react';
+import { currentCostume } from '@bpCostumes/stores/currentCostumeStore';
+import { currentLighting } from '@bpCostumes/stores/currentLightingStore';
 
 export default function CostumeImage() {
-  const $currentCostume = useStore(currentCostume)
-  const $currentLighting = useStore(currentLighting)
+  const $currentCostume = useStore(currentCostume);
+  const $currentLighting = useStore(currentLighting);
   
   return (
     <div className="overflow-hidden rounded-lg shadow-lg bg-gradient-to-b from-[#2C282E] to-[#524E4F] text-white">
@@ -32,5 +32,5 @@ export default function CostumeImage() {
         )}
       </dl>
     </div>
-  )
+  );
 }

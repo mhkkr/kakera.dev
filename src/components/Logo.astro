@@ -1,18 +1,15 @@
 ---
-import Avatar from './../../public/images/avatar.webp'
+import Avatar from './../../public/images/avatar.webp';
 
 interface Props {
-	isLink?: boolean,
-	isResponsive?: boolean
+	isLink?: boolean;
+	isResponsive?: boolean;
 }
-const {
-	isLink = true,
-	isResponsive = true
-} = Astro.props
+const { isLink = true, isResponsive = true } = Astro.props
 ---
 
 {isLink ? 
-	<a class={`inline-flex ${isResponsive ? 'flex-col lg:flex-row' : 'flex-row'} gap-4 items-center align-text-bottom group`} href="/">
+	<a class={`inline-flex ${isResponsive ? 'flex-col lg:flex-row' : 'flex-row'} gap-4 items-center align-text-bottom group`} href="/" title="トップへ戻る">
 		<div class="w-20 h-20 p-2 bg-white rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl group-hover:rounded-bl-none transition-all">
 			<img src={Avatar.src} width={Avatar.width} height={Avatar.height} alt="kakera avatar" />
 		</div>
