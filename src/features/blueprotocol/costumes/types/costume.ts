@@ -1,4 +1,4 @@
-export interface Costumes {
+export interface Costume {
   title: string;
   comment: string;
   costume: string[] | null;

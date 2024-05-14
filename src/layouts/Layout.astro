@@ -2,9 +2,7 @@
 import Logo from '@/components/Logo.astro';
 ---
 
-<div class="relative min-h-svh">
-	<header class="absolute left-4 top-4 z-header">
-		<Logo isResponsive={false} />
-	</header>
-	<slot />
-</div>
+<header class="absolute left-4 top-4 z-header">
+	<Logo isResponsive={false} />
+</header>
+<slot />

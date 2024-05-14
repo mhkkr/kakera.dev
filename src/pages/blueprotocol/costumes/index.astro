@@ -4,7 +4,11 @@ import Layout from '@/layouts/Layout.astro';
 import Costumes from '@bpCostumes/index.astro';
 ---
 
-<Root title="ブルプロ コーディネート">
+<Root
+  title="【ブルプロ】コーディネート集"
+  description="組み合わせの記憶が怪しくなってきたのでまとめてみる。ゲーム内でのセット登録機能的なモノの実装が待たれる！"
+  ogimage={Astro.url.origin + '/images/blueprotocol/costumes/ogimage.webp'}
+>
   <Layout>
     <Costumes />
   </Layout>
