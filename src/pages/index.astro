@@ -4,10 +4,11 @@ import Root from '@/layouts/Root.astro';
 import Logo from '@/components/Logo.astro';
 import Section from '@/components/Section.astro';
 
-import XThumb from '/public/images/logo_x.svg';
-import AnnictThumb from '/public/images/logo_annict.webp';
-import AnimitaThumb from '/public/images/logo_animita.svg';
-import NicovideoThumb from '/public/images/logo_nicovideo.webp';
+import XLogo from '/public/images/logo_x.svg';
+import AnnictLogo from '/public/images/logo_annict.webp';
+import AnimitaLogo from '/public/images/logo_animita.svg';
+import NicovideoLogo from '/public/images/logo_nicovideo.webp';
+import BlueprotocolLogo from '/public/images/projectmark_BL.webp';
 import BgPhoto from '/public/images/BlueProtocol_20230728_021113.webp';
 ---
 
@@ -26,12 +27,12 @@ import BgPhoto from '/public/images/BlueProtocol_20230728_021113.webp';
 		</header>
 		<main class="flex-1 flex items-center justify-center lg:px-8 px-4 lg:my-8 my-12">
 			<div class="flex flex-col lg:gap-16 gap-12 max-w-lg">
-				<Section title="Twitter" description="日常を低頻度でお届け！" url="https://twitter.com/kakera_dev" thumb={XThumb} />
-				<Section title="Annict" description="アニメ見た記録を付けてます！" url="https://annict.com/@kakera" thumb={AnnictThumb}>
+				<Section title="Twitter" description="日常を低頻度でお届け！" url="https://twitter.com/kakera_dev" thumb={XLogo} />
+				<Section title="Annict" description="アニメ見た記録を付けてます！" url="https://annict.com/@kakera" thumb={AnnictLogo}>
 					<aside class="border border-stone-700 rounded-md py-2 px-3">
 						<h3 class="font-bold text-lg">
 							<a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">
-								<img class="inline align-baseline w-[1em]" src={AnimitaThumb.src} width={AnimitaThumb.width} height={AnimitaThumb.height} alt="" />
+								<img class="inline align-baseline w-[1em]" src={AnimitaLogo.src} width={AnimitaLogo.width} height={AnimitaLogo.height} alt="" />
 								アニみた
 							</a>
 						</h3>
@@ -42,11 +43,16 @@ import BgPhoto from '/public/images/BlueProtocol_20230728_021113.webp';
 						</ul>
 					</aside>
 				</Section>
-				<Section title="ニコニコ動画" description="プレイ動画をたまに投稿してます！" url="https://www.nicovideo.jp/user/136915/video" thumb={NicovideoThumb}>
+				<Section title="ニコニコ動画" description="プレイ動画をたまに投稿してます！" url="https://www.nicovideo.jp/user/136915/video" thumb={NicovideoLogo}>
 					<ul class="list-disc ml-8">
 						<li><a href="https://www.nicovideo.jp/user/136915/series/424124" target="_blank" rel="noopener noreferrer">BLUE PROTOCOL（現行プレイ中）</a></li>
 						<li><a href="https://www.nicovideo.jp/user/136915/series/424125" target="_blank" rel="noopener noreferrer">PSO2</a></li>
 						<li><a href="https://www.nicovideo.jp/user/136915/series/424126" target="_blank" rel="noopener noreferrer">飛天online（サービス終了）</a></li>
+					</ul>
+				</Section>
+				<Section title="Blue Protocol" description="自分用の地味なデータとか！" thumb={BlueprotocolLogo}>
+					<ul class="list-disc ml-8">
+						<li><a href="./blueprotocol/costumes">コーディネート集</a></li>
 					</ul>
 				</Section>
 			</div>
