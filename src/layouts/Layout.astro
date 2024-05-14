@@ -1,8 +1,15 @@
 ---
 import Logo from '@/components/Logo.astro';
+
+interface Props {
+	layout: 'app';
+}
+const { layout } = Astro.props
 ---
 
-<header class="absolute left-4 top-4 z-header">
-	<Logo isResponsive={false} />
-</header>
-<slot />
+{layout === 'app' && (
+	<header class="absolute left-4 top-4 z-header">
+		<Logo layout={layout} />
+	</header>
+	<slot />
+)}

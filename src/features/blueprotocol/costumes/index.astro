@@ -5,27 +5,29 @@ import CostumeImage from '@bpCostumes/components/CostumeImage';
 import Lighting from '@bpCostumes/components/Lighting';
 ---
 
-<main class="grid place-content-center min-h-svh p-4 pt-16">
-  <div class="pr-[calc(18rem_-_5rem)]">
-    <div class="grid grid-cols-3 gap-4 max-w-screen-md">
-      <header class="col-span-3">
+<main class="grid place-content-center min-h-svh p-4 pt-20 lg:pt-16">
+  <div class="lg:pr-[calc(18rem_-_5rem)]">
+    <div class="grid lg:grid-cols-3 gap-4 lg:max-w-screen-md">
+      <header class="lg:col-span-3">
         <h1 class="font-bold">【ブルプロ】コーディネート集</h1>
         <p class="text-sm">組み合わせの記憶が怪しくなってきたのでまとめてみる。ゲーム内でのセット登録機能的なモノの実装が待たれる！</p>
       </header>
-      <div class="col-span-1">
+      <div class="lg:col-span-1">
         <Costumes client:load />
-        <div class="w-96 max-w-full"></div>
+        <div class="lg:w-96 max-w-full">
+          <!-- 横幅維持DIV -->
+        </div>
       </div>
-      <div class="col-span-2 relative">
+      <div class="lg:col-span-2 relative">
         <CostumeImage client:load />
         <div class="absolute w-4 left-4 top-4">
           <Lighting client:load />
         </div>
-        <div class="absolute w-72 left-[calc(100%_-_5rem)] top-[10%]">
+        <div class="mt-4 mx-auto lg:mt-0 lg:absolute w-72 lg:left-[calc(100%_-_5rem)] lg:top-[10%]">
           <CostumeDetail client:load />
         </div>
       </div>
-      <div class="col-span-3 text-right text-xs">
+      <div class="lg:col-span-3 text-right text-xs">
         <p>メインの上でホイール操作をすると画像の切り替え可能。Shiftキーを同時に押すとライティングを切り替え可能。</p>
         <footer>
           <p>©2019 Bandai Namco Online Inc. ©2019 Bandai Namco Studios Inc.</p>
