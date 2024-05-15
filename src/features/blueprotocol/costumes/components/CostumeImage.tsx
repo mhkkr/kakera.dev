@@ -10,6 +10,7 @@ export default function CostumeImage() {
   const $currentLighting = useStore(currentLighting);
 
   const handleWheel = (event: React.WheelEvent) => {
+    console.log(event)
     if (event.shiftKey) {
       changeLighting(event);
     } else {

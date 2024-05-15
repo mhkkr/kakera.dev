@@ -16,7 +16,7 @@ export default function Costumes() {
             <button onClick={() => updateCurrentCostume(costume)} type="button">
               <img
                 className="absolute left-[-486%] top-[-62%] max-w-[800%]"
-                src={`/images/blueprotocol/costumes/${costume.title}_${$currentLighting}.webp`}
+                src={`/images/blueprotocol/costumes/${costume.title}_afternoon.webp`}
                 alt={costume.title}
                 title={costume.title}
               />
