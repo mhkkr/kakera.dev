@@ -1,3 +1,5 @@
+import { useState, useRef, useEffect } from 'react';
+
 import { useStore } from '@nanostores/react';
 import { currentCostume, updateCurrentCostume } from '@bpCostumes/stores/currentCostumeStore';
 import { currentLighting } from '@bpCostumes/stores/currentLightingStore';
@@ -6,11 +8,37 @@ import type { Costume } from '@/features/blueprotocol/costumes/types/costume';
 import costumes from '@bpCostumes/libs/costumes.json';
 
 export default function CostumeImage() {
+  const [isLoading, setIsLoading] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
   const $currentCostume = useStore(currentCostume);
   const $currentLighting = useStore(currentLighting);
 
+  useEffect(() => {
+    const img = imgRef.current;
+
+    if (!img) return;
+
+    setIsLoading(true);
+
+    if (img.complete) {
+      handleLoad();
+    } else {
+      img.addEventListener('load', handleLoad);
+    }
+
+    return () => {
+      img.removeEventListener('load', handleLoad);
+    };
+  }, [$currentCostume, $currentLighting]);
+
+  const handleLoad = () => {
+    setIsLoading(false);
+  };
+
   const handleWheel = (event: React.WheelEvent) => {
-    console.log(event)
+    if (isLoading) return;
+    
     if (event.shiftKey) {
       changeLighting(event);
     } else {
@@ -43,7 +71,12 @@ export default function CostumeImage() {
 
   return (
     <div className="relative overflow-hidden rounded-lg aspect-[4_/_5] shadow-lg">
-      <img className="absolute left-[-143%] top-[-17%] max-w-[283%]" onWheel={handleWheel} src={`/images/blueprotocol/costumes/${$currentCostume.title}_${$currentLighting}.webp`} alt={$currentCostume.title} />
+      {isLoading && (
+        <div className="z-10 absolute inset-0 flex items-center justify-center" title="読み込み中" aria-label="読み込み中">
+          <div className="animate-spin h-10 w-10 border-4 border-white rounded-full border-t-transparent"></div>
+        </div>
+      )}
+      <img className="absolute left-[-143%] top-[-17%] max-w-[283%]" ref={imgRef} onWheel={handleWheel} src={`/images/blueprotocol/costumes/${$currentCostume.title}_${$currentLighting}.webp`} alt={$currentCostume.title} />
     </div>
   );
 }
