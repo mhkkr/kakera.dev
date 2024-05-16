@@ -2,59 +2,112 @@
 import Root from '@/layouts/Root.astro';
 
 import Logo from '@/components/Logo.astro';
-import Section from '@/components/Section.astro';
+import Card from '@/components/Card.astro';
 
-import XLogo from '/public/images/logo_x.svg';
+import XLogo from '/public/images/Logo_of_Twitter.svg';
 import AnnictLogo from '/public/images/logo_annict.webp';
 import AnimitaLogo from '/public/images/logo_animita.svg';
 import NicovideoLogo from '/public/images/logo_nicovideo.webp';
 import BlueprotocolLogo from '/public/images/projectmark_BL.webp';
+import TechblogLogo from '/public/images/logo_techblog.webp';
+import HaulLogo from '/public/images/logo_haul.webp';
+
 import BgPhoto from '/public/images/BlueProtocol_20230728_021113.webp';
+
+const description = '自分の何かをまとめるサイト。\nぎりぎりフロントエンドエンジニアなフリーランス。\nフロントエンドとアニメと自転車。そして、MMORPG！\n最近はブループロトコルばっかりしてます。';
 ---
 
 <Root
-	description="自分の何かをまとめるサイト"
+	description={description.replace('\n', '').trim()}
 >
-	<figure class="lg:fixed relative left-0 top-0 bottom-0 lg:w-1/2 lg:rounded-[0_0_12.5%_0] lg:overflow-hidden lg:shadow-2xl">
-		<img class="object-cover lg:object-[right_40%_top_0] h-full" src={BgPhoto.src} width={BgPhoto.width} height={BgPhoto.height} alt="">
-		<figcaption class="absolute left-4 lg:bottom-4 lg:top-auto top-4 right-[12.5%] text-xs text-white">©2019 Bandai Namco Online Inc. ©2019 Bandai Namco Studios Inc.</figcaption>
+	<figure class="relative lg:fixed left-0 top-0 bottom-0 right-1/2">
+		<img class="h-40 lg:h-full object-cover lg:object-[right_40%_top_0] lg:rounded-[0_0_12.5%_0] lg:shadow-2xl" src={BgPhoto.src} width={BgPhoto.width} height={BgPhoto.height} alt="">
+		<figcaption class="absolute left-4 bottom-4 right-4 text-xs text-white text-right lg:text-left">
+			<span class="inline-block">©2019 Bandai Namco Online Inc.</span>
+			<span class="inline-block">©2019 Bandai Namco Studios Inc.</span>
+		</figcaption>
 	</figure>
-	<div class="relative z-10 lg:pl-[50%] lg:min-h-screen flex flex-col">
-		<header class="lg:-ml-10 lg:mt-8 -mt-10 flex lg:flex-row flex-col gap-4 items-center">
+	<div class="relative z-10 lg:pl-[50%] min-h-svh">
+		<header class="lg:sticky top-8 lg:-ml-10 my-8 lg:mt-0 lg:mb-16 text-center lg:text-left">
 			<h1>
-				<Logo layout="root" />
+				<Logo />
 			</h1>
 		</header>
-		<main class="flex-1 flex items-center justify-center lg:px-8 px-4 lg:my-8 my-12">
-			<div class="flex flex-col lg:gap-16 gap-12 max-w-lg">
-				<Section title="Twitter" description="日常を低頻度でお届け！" url="https://twitter.com/kakera_dev" thumb={XLogo} />
-				<Section title="Annict" description="アニメ見た記録を付けてます！" url="https://annict.com/@kakera" thumb={AnnictLogo}>
-					<aside class="border border-stone-700 rounded-md py-2 px-3">
-						<h3 class="font-bold text-lg">
+		<main class="max-w-screen-sm mx-auto px-4 lg:px-8 mb-16">
+			<div class="
+				p-4
+				relative
+				before:content-[''] before:absolute before:left-0 before:top-0 before:w-8 before:h-8 before:border-t before:border-l before:border-gray-400
+				after:content-[''] after:absolute after:right-0 after:bottom-0 after:w-8 after:h-8 after:border-b after:border-r after:border-gray-400
+			">
+				<p class="text-center whitespace-pre-wrap">{description}</p>
+			</div>
+
+			<div class="mt-16 grid sm:grid-cols-2 gap-4">
+				<h2 class="sm:col-span-2 text-lg font-bold">SNS・Webサービス系</h2>
+				<Card
+					title="Twitter"
+					description="日常を低頻度でお届け！"
+					thumb={XLogo}
+					url="https://twitter.com/kakera_dev"
+				/>
+				<Card
+					title="ニコニコ動画"
+					description="ゲームプレイ動画を稀に投稿してます！"
+					thumb={NicovideoLogo}
+					url="https://www.nicovideo.jp/user/136915/video"
+				>
+					<ul class="list-disc ml-6">
+						<li><a href="https://www.nicovideo.jp/user/136915/series/424124" target="_blank" rel="noopener noreferrer">BLUE PROTOCOL（現行プレイ中）</a></li>
+						<li><a href="https://www.nicovideo.jp/user/136915/series/424125" target="_blank" rel="noopener noreferrer">PSO2</a></li>
+						<li><a href="https://www.nicovideo.jp/user/136915/series/424126" target="_blank" rel="noopener noreferrer">飛天online（サービス終了）</a></li>
+					</ul>
+				</Card>
+				<Card
+					title="Annict"
+					description="アニメ視聴の記録を毎日書いてます！"
+					thumb={AnnictLogo}
+					url="https://annict.com/@kakera"
+				>
+					<aside class="border-t border-gray-400 border-dashed -mx-4 px-4 pt-3">
+						<h3 class="font-bold text-base">
 							<a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">
 								<img class="inline align-baseline w-[1em]" src={AnimitaLogo.src} width={AnimitaLogo.width} height={AnimitaLogo.height} alt="" />
 								アニみた
 							</a>
 						</h3>
-						<p>加入している配信サイトで今すぐ見れるアニメを分かりやすく把握する目的で Annict のユーザークライアントを作りました。スマホで快適に記録をつけれるように意識しています。</p>
-						<ul class="list-disc ml-8 mt-2">
+						<p class="mt-1.5">加入している配信サイトで今すぐ見れるアニメを分かりやすく把握する目的で Annict のユーザークライアントを作りました。スマホで快適に記録をつけれるように意識しています。</p>
+						<ul class="list-disc ml-6 mt-2">
 							<li><a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">アプリ</a></li>
 							<li><a href="https://annict.com/userland/projects/178" target="_blank" rel="noopener noreferrer">紹介ページ</a></li>
 						</ul>
 					</aside>
-				</Section>
-				<Section title="ニコニコ動画" description="プレイ動画をたまに投稿してます！" url="https://www.nicovideo.jp/user/136915/video" thumb={NicovideoLogo}>
-					<ul class="list-disc ml-8">
-						<li><a href="https://www.nicovideo.jp/user/136915/series/424124" target="_blank" rel="noopener noreferrer">BLUE PROTOCOL（現行プレイ中）</a></li>
-						<li><a href="https://www.nicovideo.jp/user/136915/series/424125" target="_blank" rel="noopener noreferrer">PSO2</a></li>
-						<li><a href="https://www.nicovideo.jp/user/136915/series/424126" target="_blank" rel="noopener noreferrer">飛天online（サービス終了）</a></li>
+				</Card>
+
+				<h2 class="mt-8 sm:col-span-2 text-lg font-bold">ゲーム系</h2>
+				<Card
+					title="Blue Protocol"
+					description="自分用の地味なデータとか！"
+					thumb={BlueprotocolLogo}
+					>
+						<ul class="list-disc ml-6">
+							<li><a href="./blueprotocol/costumes">コーディネート集</a></li>
 					</ul>
-				</Section>
-				<Section title="Blue Protocol" description="自分用の地味なデータとか！" thumb={BlueprotocolLogo}>
-					<ul class="list-disc ml-8">
-						<li><a href="./blueprotocol/costumes">コーディネート集</a></li>
-					</ul>
-				</Section>
+				</Card>
+
+				<h2 class="mt-8 sm:col-span-2 text-lg font-bold">ブログ系</h2>
+				<Card
+					title="ググりンジニア録"
+					description="技術ブログ的な…更新していない。"
+					thumb={TechblogLogo}
+					url="https://techblog.kakera.dev/"
+				/>
+				<Card
+					title="欠's 購入品紹介"
+					description="レビューを書いていこうと思った…更新していない。"
+					thumb={HaulLogo}
+					url="https://haul.kakera.dev/"
+				/>
 			</div>
 		</main>
 	</div>

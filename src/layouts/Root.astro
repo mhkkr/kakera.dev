@@ -1,6 +1,5 @@
 ---
-import '@fontsource/roboto';
-import defaultOgimage from '/public/images/ogimage.webp';
+import '@fontsource/noto-sans-jp';
 
 interface Props {
 	title?: string;
@@ -38,7 +37,7 @@ const { title, description, ogimage } = Astro.props;
 		{description && <meta property="twitter:description" content={description} />}
 		<meta property="twitter:image" content={ogimage ? ogimage : Astro.url.origin + '/images/ogimage.webp'} />
 	</head>
-	<body>
+	<body class="text-lighten font-noto-sans-jp">
 		<slot />
 	</body>
 </html>

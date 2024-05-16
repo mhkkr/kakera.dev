@@ -9,7 +9,7 @@ const { layout } = Astro.props
 
 {layout === 'app' && (
 	<header class="absolute left-4 top-4 z-header">
-		<Logo layout={layout} />
+		<Logo anchor={true} />
 	</header>
 	<slot />
 )}
