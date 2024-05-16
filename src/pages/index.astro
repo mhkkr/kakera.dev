@@ -3,6 +3,7 @@ import Root from '@/layouts/Root.astro';
 
 import Logo from '@/components/Logo.astro';
 import Card from '@/components/Card.astro';
+import Anchor from '@/components/Anchor.astro';
 
 import XLogo from '/public/images/Logo_of_Twitter.svg';
 import AnnictLogo from '/public/images/logo_annict.webp';
@@ -29,9 +30,7 @@ const description = '自分の何かをまとめるサイト。\nぎりぎりフ
 	</figure>
 	<div class="relative z-10 lg:pl-[50%] min-h-svh">
 		<header class="lg:sticky top-8 lg:-ml-10 my-8 lg:mt-0 lg:mb-16 text-center lg:text-left">
-			<h1>
-				<Logo />
-			</h1>
+			<h1><Logo /></h1>
 		</header>
 		<main class="max-w-screen-sm mx-auto px-4 lg:px-8 mb-16">
 			<div class="
@@ -53,14 +52,14 @@ const description = '自分の何かをまとめるサイト。\nぎりぎりフ
 				/>
 				<Card
 					title="ニコニコ動画"
-					description="ゲームプレイ動画を稀に投稿してます！"
+					description="ゲーム動画を稀に投稿してます！"
 					thumb={NicovideoLogo}
 					url="https://www.nicovideo.jp/user/136915/video"
 				>
 					<ul class="list-disc ml-6">
-						<li><a href="https://www.nicovideo.jp/user/136915/series/424124" target="_blank" rel="noopener noreferrer">BLUE PROTOCOL（現行プレイ中）</a></li>
-						<li><a href="https://www.nicovideo.jp/user/136915/series/424125" target="_blank" rel="noopener noreferrer">PSO2</a></li>
-						<li><a href="https://www.nicovideo.jp/user/136915/series/424126" target="_blank" rel="noopener noreferrer">飛天online（サービス終了）</a></li>
+						<li><Anchor url="https://www.nicovideo.jp/user/136915/series/424124">BLUE PROTOCOL（現行プレイ中）</Anchor></li>
+						<li><Anchor url="https://www.nicovideo.jp/user/136915/series/424125">PSO2</Anchor></li>
+						<li><Anchor url="https://www.nicovideo.jp/user/136915/series/424126">飛天online（サービス終了）</Anchor></li>
 					</ul>
 				</Card>
 				<Card
@@ -71,15 +70,15 @@ const description = '自分の何かをまとめるサイト。\nぎりぎりフ
 				>
 					<aside class="border-t border-gray-400 border-dashed -mx-4 px-4 pt-3">
 						<h3 class="font-bold text-base">
-							<a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">
-								<img class="inline align-baseline w-[1em]" src={AnimitaLogo.src} width={AnimitaLogo.width} height={AnimitaLogo.height} alt="" />
+							<Anchor url="https://animita.vercel.app/">
+								<img class="w-[1em]" src={AnimitaLogo.src} width={AnimitaLogo.width} height={AnimitaLogo.height} alt="" />
 								アニみた
-							</a>
+							</Anchor>
 						</h3>
 						<p class="mt-1.5">加入している配信サイトで今すぐ見れるアニメを分かりやすく把握する目的で Annict のユーザークライアントを作りました。スマホで快適に記録をつけれるように意識しています。</p>
 						<ul class="list-disc ml-6 mt-2">
-							<li><a href="https://animita.vercel.app/" target="_blank" rel="noopener noreferrer">アプリ</a></li>
-							<li><a href="https://annict.com/userland/projects/178" target="_blank" rel="noopener noreferrer">紹介ページ</a></li>
+							<li><Anchor url="https://animita.vercel.app/">アプリ</Anchor></li>
+							<li><Anchor url="https://annict.com/userland/projects/178">紹介ページ</Anchor></li>
 						</ul>
 					</aside>
 				</Card>
@@ -89,9 +88,9 @@ const description = '自分の何かをまとめるサイト。\nぎりぎりフ
 					title="Blue Protocol"
 					description="自分用の地味なデータとか！"
 					thumb={BlueprotocolLogo}
-					>
-						<ul class="list-disc ml-6">
-							<li><a href="./blueprotocol/costumes">コーディネート集</a></li>
+				>
+					<ul class="list-disc ml-6">
+						<li><Anchor url="/blueprotocol/costumes">コーディネート集</Anchor></li>
 					</ul>
 				</Card>
 
