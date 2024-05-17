@@ -3,14 +3,21 @@ import Costumes from '@bpCostumes/components/Costumes';
 import CostumeDetail from '@bpCostumes/components/CostumeDetail';
 import CostumeImage from '@bpCostumes/components/CostumeImage';
 import Lighting from '@bpCostumes/components/Lighting';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
 ---
 
 <main class="grid place-content-center min-h-svh p-4 pt-20 lg:pt-16">
   <div class="lg:pr-[calc(18rem_-_5rem)]">
     <div class="grid lg:grid-cols-3 gap-4 lg:max-w-screen-md">
       <header class="lg:col-span-3">
-        <h1 class="font-bold">【ブルプロ】コーディネート集</h1>
-        <p class="text-sm">組み合わせの記憶が怪しくなってきたのでまとめてみる。ゲーム内でのセット登録機能的なモノの実装が待たれる！</p>
+        <h1 class="font-bold">{title}</h1>
+        <p class="text-sm">{description}</p>
       </header>
       <div class="lg:col-span-1">
         <Costumes client:load />
@@ -29,8 +36,11 @@ import Lighting from '@bpCostumes/components/Lighting';
       </div>
       <div class="lg:col-span-3 text-right text-xs">
         <p>メインの上でホイール操作をすると画像の切り替え可能。Shiftキーを同時に押すとライティングを切り替え可能。</p>
-        <footer>
-          <p>©2019 Bandai Namco Online Inc. ©2019 Bandai Namco Studios Inc.</p>
+        <footer class="mt-3">
+          <p class="table ml-auto py-1 px-2 text-center text-gray-500 border border-gray-300 rounded-full">
+            <span class="inline-block">©2019 Bandai Namco Online Inc.</span>
+            <span class="inline-block">©2019 Bandai Namco Studios Inc.</span>
+          </p>
         </footer>
       </div>
     </div>

@@ -9,7 +9,12 @@ import costumes from '@bpCostumes/libs/costumes.json';
 
 export default function CostumeImage() {
   const [isLoading, setIsLoading] = useState(false);
+  
   const imgRef = useRef<HTMLImageElement>(null);
+  const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchEndX = useRef(0);
+  const touchEndY = useRef(0);
 
   const $currentCostume = useStore(currentCostume);
   const $currentLighting = useStore(currentLighting);
@@ -32,40 +37,83 @@ export default function CostumeImage() {
     };
   }, [$currentCostume, $currentLighting]);
 
-  const handleLoad = () => {
-    setIsLoading(false);
+  useEffect(() => {
+    const img = imgRef.current;
+
+    if (!img) return;
+
+    img.addEventListener('wheel', cancelDefaultWheel, { passive: false });
+    img.addEventListener('touchmove', cancelDefaultTouchMove, { passive: false });
+
+    return () => {
+      img.removeEventListener('wheel', cancelDefaultWheel);
+      img.removeEventListener('touchmove', cancelDefaultTouchMove);
+    };
+  }, []);
+
+  const handleLoad = () => setIsLoading(false);
+  const cancelDefaultWheel = (event: WheelEvent) => event.preventDefault();
+  const cancelDefaultTouchMove = (event: TouchEvent) => event.preventDefault();
+
+  const handleTouchStart = (event: React.TouchEvent) => {
+    const touch = event.touches[0];
+    touchStartX.current = touch.clientX;
+    touchStartY.current = touch.clientY;
+  };
+
+  const handleTouchMove = (event: React.TouchEvent) => {
+    const touch = event.touches[0];
+    touchEndX.current = touch.clientX;
+    touchEndY.current = touch.clientY;
+  };
+
+  const handleTouchEnd = () => {
+    if (isLoading) return;
+
+    const deltaX = touchEndX.current - touchStartX.current;
+    const deltaY = touchEndY.current - touchStartY.current;
+    
+    if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      changeLighting(deltaY);
+    } else {
+      changeCostume(deltaY);
+    }
   };
 
   const handleWheel = (event: React.WheelEvent) => {
     if (isLoading) return;
     
     if (event.shiftKey) {
-      changeLighting(event);
+      changeLighting(event.deltaY);
     } else {
-      changeCostume(event);
+      changeCostume(event.deltaY);
     }
   };
 
-  const changeLighting = (event: React.WheelEvent) => {
+  const changeLighting = (deltaY: number) => {
     const lightings = ['dawn', 'morning', 'afternoon', 'evening', 'night'] as const;
     const lightingIndex = lightings.findIndex(lighting => lighting === $currentLighting);
+
     let nextLightingId: 'dawn' | 'morning' | 'afternoon' | 'evening' | 'night';
-    if (event.deltaY > 0) {
+    if (deltaY > 0) {
       nextLightingId = lightings[lightingIndex + 1] ? lightings[lightingIndex + 1] : lightings[0];
     } else {
       nextLightingId = lightings[lightingIndex - 1] ? lightings[lightingIndex - 1] : lightings[lightings.length - 1];
     }
+
     currentLighting.set(nextLightingId);
   };
 
-  const changeCostume = (event: React.WheelEvent) => {
+  const changeCostume = (deltaY: number) => {
     const costumeIndex = costumes.findIndex(costume => costume.title === $currentCostume.title);
+
     let nextCostume: Costume;
-    if (event.deltaY > 0) {
+    if (deltaY > 0) {
       nextCostume = costumes[costumeIndex + 1] ? costumes[costumeIndex + 1] : costumes[0];
     } else {
       nextCostume = costumes[costumeIndex - 1] ? costumes[costumeIndex - 1] : costumes[costumes.length - 1];
     }
+
     updateCurrentCostume(nextCostume);
   };
 
@@ -76,7 +124,16 @@ export default function CostumeImage() {
           <div className="animate-spin h-10 w-10 border-4 border-white rounded-full border-t-transparent"></div>
         </div>
       )}
-      <img className="absolute left-[-143%] top-[-17%] max-w-[283%]" ref={imgRef} onWheel={handleWheel} src={`/images/blueprotocol/costumes/${$currentCostume.title}_${$currentLighting}.webp`} alt={$currentCostume.title} />
+      <img
+        className="absolute left-[-143%] top-[-17%] max-w-[283%]"
+        ref={imgRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onWheel={handleWheel}
+        src={`/images/blueprotocol/costumes/${$currentCostume.title}_${$currentLighting}.webp`}
+        alt={$currentCostume.title}
+      />
     </div>
   );
 }

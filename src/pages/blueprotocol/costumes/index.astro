@@ -2,14 +2,17 @@
 import Root from '@/layouts/Root.astro';
 import Layout from '@/layouts/Layout.astro';
 import Costumes from '@bpCostumes/index.astro';
+
+const title = '【ブルプロ】コーディネート集';
+const description = '組み合わせの記憶が怪しくなってきたのでまとめてみる。アホ毛は気分次第で変わる！ゲーム内に欲しいね！';
 ---
 
 <Root
-  title="【ブルプロ】コーディネート集"
-  description="組み合わせの記憶が怪しくなってきたのでまとめてみる。ゲーム内でのセット登録機能的なモノの実装が待たれる！"
+  title={title}
+  description={description}
   ogimage={Astro.url.origin + '/images/blueprotocol/costumes/ogimage.webp'}
 >
   <Layout layout="app">
-    <Costumes />
+    <Costumes title={title} description={description} />
   </Layout>
 </Root>
