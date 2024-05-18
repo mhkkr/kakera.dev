@@ -6,7 +6,7 @@
     "fetch-data": "node scripts/blueprotocol-costumes-fetchdata.js",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "npm run fetch-data && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
