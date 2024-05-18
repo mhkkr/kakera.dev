@@ -11,9 +11,7 @@ export default function CostumeImage() {
   const [isLoading, setIsLoading] = useState(false);
   
   const imgRef = useRef<HTMLImageElement>(null);
-  const touchStartX = useRef(0);
   const touchStartY = useRef(0);
-  const touchEndX = useRef(0);
   const touchEndY = useRef(0);
 
   const $currentCostume = useStore(currentCostume);
@@ -66,27 +64,20 @@ export default function CostumeImage() {
 
   const handleTouchStart = (event: React.TouchEvent) => {
     const touch = event.touches[0];
-    touchStartX.current = touch.clientX;
     touchStartY.current = touch.clientY;
   };
 
   const handleTouchMove = (event: React.TouchEvent) => {
     const touch = event.touches[0];
-    touchEndX.current = touch.clientX;
     touchEndY.current = touch.clientY;
   };
 
   const handleTouchEnd = () => {
     if (isLoading) return;
 
-    const deltaX = touchEndX.current - touchStartX.current;
     const deltaY = touchEndY.current - touchStartY.current;
     
-    if (Math.abs(deltaY) > Math.abs(deltaX)) {
-      changeLighting(deltaY);
-    } else {
-      changeCostume(deltaY);
-    }
+    changeCostume(deltaY);
   };
 
   const handleWheel = (event: React.WheelEvent) => {
@@ -105,9 +96,9 @@ export default function CostumeImage() {
 
     let nextLightingId: 'dawn' | 'morning' | 'afternoon' | 'evening' | 'night';
     if (deltaY > 0) {
-      nextLightingId = lightings[lightingIndex + 1] ? lightings[lightingIndex + 1] : lightings[0];
-    } else {
       nextLightingId = lightings[lightingIndex - 1] ? lightings[lightingIndex - 1] : lightings[lightings.length - 1];
+    } else {
+      nextLightingId = lightings[lightingIndex + 1] ? lightings[lightingIndex + 1] : lightings[0];
     }
 
     currentLighting.set(nextLightingId);
@@ -118,9 +109,9 @@ export default function CostumeImage() {
 
     let nextCostume: Costume;
     if (deltaY > 0) {
-      nextCostume = costumes[costumeIndex + 1] ? costumes[costumeIndex + 1] : costumes[0];
-    } else {
       nextCostume = costumes[costumeIndex - 1] ? costumes[costumeIndex - 1] : costumes[costumes.length - 1];
+    } else {
+      nextCostume = costumes[costumeIndex + 1] ? costumes[costumeIndex + 1] : costumes[0];
     }
 
     updateCurrentCostume(nextCostume);
