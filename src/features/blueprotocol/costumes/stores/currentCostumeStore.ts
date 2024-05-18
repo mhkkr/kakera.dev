@@ -3,20 +3,20 @@ import type { Costume } from '@bpCostumes/types/costume';
 import costumes from '@bpCostumes/assets/data/costumes.json';
 
 export const currentCostume = map<Costume>({
-  id: costumes[0].id,
-  createdAt: costumes[0].createdAt,
-  updatedAt: costumes[0].updatedAt,
-  publishedAt: costumes[0].publishedAt,
-  revisedAt: costumes[0].revisedAt,
-  title: costumes[0].title,
-  image_dawn: costumes[0].image_dawn,
-  image_morning: costumes[0].image_morning,
-  image_afternoon: costumes[0].image_afternoon,
-  image_evening: costumes[0].image_evening,
-  image_night: costumes[0].image_night,
-  comment: costumes[0].comment,
-  costume: costumes[0].costume,
-  accessories: costumes[0].accessories
+  id: costumes[costumes.length - 1].id,
+  createdAt: costumes[costumes.length - 1].createdAt,
+  updatedAt: costumes[costumes.length - 1].updatedAt,
+  publishedAt: costumes[costumes.length - 1].publishedAt,
+  revisedAt: costumes[costumes.length - 1].revisedAt,
+  title: costumes[costumes.length - 1].title,
+  image_dawn: costumes[costumes.length - 1].image_dawn,
+  image_morning: costumes[costumes.length - 1].image_morning,
+  image_afternoon: costumes[costumes.length - 1].image_afternoon,
+  image_evening: costumes[costumes.length - 1].image_evening,
+  image_night: costumes[costumes.length - 1].image_night,
+  comment: costumes[costumes.length - 1].comment,
+  costume: costumes[costumes.length - 1].costume,
+  accessories: costumes[costumes.length - 1].accessories
 });
 
 export const updateCurrentCostume = (costume: Costume) => {
