@@ -4,8 +4,8 @@ import { useStore } from '@nanostores/react';
 import { currentCostume, updateCurrentCostume } from '@bpCostumes/stores/currentCostumeStore';
 import { currentLighting } from '@bpCostumes/stores/currentLightingStore';
 
-import type { Costume } from '@/features/blueprotocol/costumes/types/costume';
-import costumes from '@bpCostumes/libs/costumes.json';
+import type { Costume } from '@bpCostumes/types/costume';
+import costumes from '@bpCostumes/assets/data/costumes.json';
 
 export default function CostumeImage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -18,6 +18,15 @@ export default function CostumeImage() {
 
   const $currentCostume = useStore(currentCostume);
   const $currentLighting = useStore(currentLighting);
+
+  let src: string;
+  switch ($currentLighting) {
+    case 'dawn': src = $currentCostume.image_dawn.url; break;
+    case 'morning': src = $currentCostume.image_morning.url; break;
+    case 'afternoon': src = $currentCostume.image_afternoon.url; break;
+    case 'evening': src = $currentCostume.image_evening.url; break;
+    case 'night': src = $currentCostume.image_night.url; break;
+  }
 
   useEffect(() => {
     const img = imgRef.current;
@@ -125,13 +134,13 @@ export default function CostumeImage() {
         </div>
       )}
       <img
-        className="absolute left-[-143%] top-[-17%] max-w-[283%]"
+        className="absolute left-[-141%] top-[-17%] max-w-[283%]"
         ref={imgRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
         onWheel={handleWheel}
-        src={`/images/blueprotocol/costumes/${$currentCostume.title}_${$currentLighting}.webp`}
+        src={src}
         alt={$currentCostume.title}
       />
     </div>
