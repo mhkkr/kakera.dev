@@ -8,7 +8,7 @@ export default function Costumes() {
 
   return (
     <ul className="grid grid-cols-8 lg:grid-cols-4 gap-2">
-      {costumes.slice().reverse().map(costume => {
+      {costumes.map(costume => {
         return (
           <li key={costume.title} className={`relative overflow-hidden rounded-lg border aspect-[4_/_5] ${$currentCostume.title === costume.title ? 'border-orange-400 outline outline-orange-400' : 'border-gray-400'}`}>
             <button onClick={() => updateCurrentCostume(costume)} type="button">
