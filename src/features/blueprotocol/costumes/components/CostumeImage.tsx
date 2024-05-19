@@ -77,25 +77,25 @@ export default function CostumeImage() {
 
     const deltaY = touchEndY.current - touchStartY.current;
     
-    changeCostume(deltaY);
+    changeCostume(deltaY < 0);
   };
 
   const handleWheel = (event: React.WheelEvent) => {
     if (isLoading) return;
     
     if (event.shiftKey) {
-      changeLighting(event.deltaY);
+      changeLighting(event.deltaY > 0);
     } else {
-      changeCostume(event.deltaY);
+      changeCostume(event.deltaY > 0);
     }
   };
 
-  const changeLighting = (deltaY: number) => {
+  const changeLighting = (isScrollingDown: boolean) => {
     const lightings = ['dawn', 'morning', 'afternoon', 'evening', 'night'] as const;
     const lightingIndex = lightings.findIndex(lighting => lighting === $currentLighting);
 
     let nextLightingId: 'dawn' | 'morning' | 'afternoon' | 'evening' | 'night';
-    if (deltaY > 0) {
+    if (isScrollingDown) {
       nextLightingId = lightings[lightingIndex + 1] ? lightings[lightingIndex + 1] : lightings[0];
     } else {
       nextLightingId = lightings[lightingIndex - 1] ? lightings[lightingIndex - 1] : lightings[lightings.length - 1];
@@ -104,11 +104,11 @@ export default function CostumeImage() {
     currentLighting.set(nextLightingId);
   };
 
-  const changeCostume = (deltaY: number) => {
+  const changeCostume = (isScrollingDown: boolean) => {
     const costumeIndex = costumes.findIndex(costume => costume.title === $currentCostume.title);
 
     let nextCostume: Costume;
-    if (deltaY > 0) {
+    if (isScrollingDown) {
       nextCostume = costumes[costumeIndex + 1] ? costumes[costumeIndex + 1] : costumes[0];
     } else {
       nextCostume = costumes[costumeIndex - 1] ? costumes[costumeIndex - 1] : costumes[costumes.length - 1];
