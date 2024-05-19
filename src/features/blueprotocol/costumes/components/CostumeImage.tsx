@@ -96,9 +96,9 @@ export default function CostumeImage() {
 
     let nextLightingId: 'dawn' | 'morning' | 'afternoon' | 'evening' | 'night';
     if (deltaY > 0) {
-      nextLightingId = lightings[lightingIndex - 1] ? lightings[lightingIndex - 1] : lightings[lightings.length - 1];
-    } else {
       nextLightingId = lightings[lightingIndex + 1] ? lightings[lightingIndex + 1] : lightings[0];
+    } else {
+      nextLightingId = lightings[lightingIndex - 1] ? lightings[lightingIndex - 1] : lightings[lightings.length - 1];
     }
 
     currentLighting.set(nextLightingId);
@@ -109,9 +109,9 @@ export default function CostumeImage() {
 
     let nextCostume: Costume;
     if (deltaY > 0) {
-      nextCostume = costumes[costumeIndex - 1] ? costumes[costumeIndex - 1] : costumes[costumes.length - 1];
-    } else {
       nextCostume = costumes[costumeIndex + 1] ? costumes[costumeIndex + 1] : costumes[0];
+    } else {
+      nextCostume = costumes[costumeIndex - 1] ? costumes[costumeIndex - 1] : costumes[costumes.length - 1];
     }
 
     updateCurrentCostume(nextCostume);

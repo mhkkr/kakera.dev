@@ -13,6 +13,7 @@ const getAllContents = async (endpoint, queries = {}) => {
   return await client.getAllContents({ endpoint, queries });
 };
 
+// TODO: 色で並び替え
 async function fetchData() {
   const data = await getAllContents("costumes");
   fs.writeFileSync('src/features/blueprotocol/costumes/assets/data/costumes.json', JSON.stringify(data));
