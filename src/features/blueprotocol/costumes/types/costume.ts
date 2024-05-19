@@ -5,6 +5,7 @@ export interface Costume {
   publishedAt: string,
   revisedAt: string,
   title: string,
+  color: string[],
   image_dawn: CostumeImage,
   image_morning: CostumeImage,
   image_afternoon: CostumeImage,

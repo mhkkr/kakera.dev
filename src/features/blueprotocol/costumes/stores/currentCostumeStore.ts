@@ -9,6 +9,7 @@ export const currentCostume = map<Costume>({
   publishedAt: costumes[0].publishedAt,
   revisedAt: costumes[0].revisedAt,
   title: costumes[0].title,
+  color: costumes[0].color,
   image_dawn: costumes[0].image_dawn,
   image_morning: costumes[0].image_morning,
   image_afternoon: costumes[0].image_afternoon,
@@ -26,6 +27,7 @@ export const updateCurrentCostume = (costume: Costume) => {
   currentCostume.setKey('publishedAt', costume.publishedAt);
   currentCostume.setKey('revisedAt', costume.revisedAt);
   currentCostume.setKey('title', costume.title);
+  currentCostume.setKey('color', costume.color);
   currentCostume.setKey('image_dawn', costume.image_dawn);
   currentCostume.setKey('image_morning', costume.image_morning);
   currentCostume.setKey('image_afternoon', costume.image_afternoon);
