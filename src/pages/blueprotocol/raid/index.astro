@@ -1,0 +1,18 @@
+---
+import Root from '@/layouts/Root.astro';
+import Layout from '@/layouts/Layout.astro';
+import Costumes from '@bpCostumes/index.astro';
+
+const title = '【ブルプロ】レイド ヘヴィスマッシャー1万周';
+const description = '';
+---
+
+<Root
+  title={title}
+  description={description}
+  ogimage={Astro.url.origin + '/images/blueprotocol/raid/ogimage.webp'}
+>
+  <Layout layout="app">
+    <Costumes title={title} description={description} />
+  </Layout>
+</Root>

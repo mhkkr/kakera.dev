@@ -17,23 +17,23 @@ const { title, description, ogimage } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 
-		<title>{title ? title + ' | Kakera' : 'Kakera'}</title>
-		<meta name="title" content={title ? title + ' | Kakera' : 'Kakera'} />
+		<title>{title ? title + ' | kakera' : 'kakera'}</title>
+		<meta name="title" content={title ? title + ' | kakera' : 'kakera'} />
 		{description && <meta name="description" content={description} />}
 		<link rel="canonical" href={Astro.url} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={Astro.url} />
-		<meta property="og:title" content={title ? title + ' | Kakera' : 'Kakera'} />
+		<meta property="og:title" content={title ? title + ' | kakera' : 'kakera'} />
 		{description && <meta property="og:description" content={description} />}
 		<meta property="og:image" content={ogimage ? ogimage : Astro.url.origin + '/images/ogimage.webp'} />
-		<meta property="og:site_name" content="Kakera">
+		<meta property="og:site_name" content="kakera">
 		<meta property="og:locale" content="ja_JP">
 		
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content={title ? title + ' | Kakera' : 'Kakera'} />
+		<meta property="twitter:title" content={title ? title + ' | kakera' : 'kakera'} />
 		{description && <meta property="twitter:description" content={description} />}
 		<meta property="twitter:image" content={ogimage ? ogimage : Astro.url.origin + '/images/ogimage.webp'} />
 	</head>

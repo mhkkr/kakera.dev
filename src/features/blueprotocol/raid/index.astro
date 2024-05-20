@@ -1,0 +1,14 @@
+---
+
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<main class="grid place-content-center min-h-svh p-4 pt-20 lg:pt-16">
+  {title}
+</main>

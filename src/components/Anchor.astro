@@ -5,15 +5,15 @@ interface Props {
 	url: string;
 	target?: string;
 	rel?: string;
-	icon?: boolean;
+	isIcon?: boolean;
 }
-const { url, target, rel, icon } = Astro.props;
+const { url, target, rel, isIcon } = Astro.props;
 
 function isValidURL(url: string) {
 	const regex = /^(https?:\/\/)?([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})(:[0-9]+)?(\/[^\s]*)?$/i;
 	return regex.test(url);
 }
-let _blank = (target === '_blank') || (!target && isValidURL(url));
+let isBlank = target === '_blank' ? true : (!target && isValidURL(url)) ? true : false;
 ---
 
 {url !== '' ? (
@@ -24,11 +24,11 @@ let _blank = (target === '_blank') || (!target && isValidURL(url));
 			[&_img]:flex-shrink-0 [&_img]:transition-opacity [&_img]:hover:opacity-70
 		"
 		href={url}
-		target={target ? target : undefined}
-		rel={_blank ? 'noopener noreferrer' : (rel ? rel : undefined)}
+		target={isBlank ? '_blank' : (target ? target : undefined)}
+		rel={isBlank ? 'noopener noreferrer' : (rel ? rel : undefined)}
 	>
 		<slot />
-		{(icon && _blank) && <FiExternalLink />}
+		{(isIcon && isBlank) && <FiExternalLink />}
 	</a>
 ) : (
 	<span class="inline-flex items-center gap-2 align-bottom">
