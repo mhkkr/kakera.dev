@@ -8,8 +8,15 @@ const { layout } = Astro.props
 ---
 
 {layout === 'app' && (
-	<header class="absolute left-4 top-4 z-header">
-		<Logo anchor={true} />
-	</header>
-	<slot />
+	<div class="flex flex-col min-h-svh">
+		<header class="flex-grow-0 px-4 py-2 ">
+			<Logo anchor={true} responsive={false} />
+		</header>
+		<main class="flex-grow flex items-center justify-center p-4">
+			<slot />
+		</main>
+		<footer class="flex-grow-0 p-4 text-center lg:text-right text-xs">
+			&copy; kakera
+		</footer>
+	</div>
 )}

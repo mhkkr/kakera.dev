@@ -12,37 +12,35 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<main class="grid place-content-center min-h-svh p-4 pt-20 lg:pt-16">
-  <div class="max-w-[600px] mx-auto lg:max-w-none lg:mx-0 lg:pr-[calc(18rem_-_5rem)]">
-    <div class="grid lg:grid-cols-3 gap-4 lg:max-w-screen-md">
-      <header class="lg:col-span-3">
-        <h1 class="font-bold">{title}</h1>
-        <p class="text-sm">{description}</p>
-      </header>
-      <div class="lg:col-span-1">
-        <Costumes client:load />
-        <div class="lg:w-96 max-w-full">
-          <!-- 横幅維持DIV -->
-        </div>
+<div class="w-full max-w-screen-sm lg:max-w-[calc(768px_+_18rem_-_5rem)] lg:pr-[calc(18rem_-_5rem)]">
+  <div class="grid lg:grid-cols-3 gap-4">
+    <header class="lg:col-span-3">
+      <h1 class="text-lg font-bold">{title}</h1>
+      <p class="text-sm">{description}</p>
+    </header>
+    <div class="lg:col-span-1">
+      <Costumes client:load />
+    </div>
+    <div class="lg:col-span-2 relative">
+      <CostumeImage client:load />
+      <div class="absolute w-4 left-4 top-4">
+        <Lighting client:load />
       </div>
-      <div class="lg:col-span-2 relative">
-        <CostumeImage client:load />
-        <div class="absolute w-4 left-4 top-4">
-          <Lighting client:load />
-        </div>
-        <div class="mt-4 mx-auto lg:mt-0 z-10 lg:absolute w-72 lg:left-[calc(100%_-_5rem)] lg:top-[5%]">
-          <CostumeDetail client:load />
-        </div>
-      </div>
-      <div class="mt-6 lg:mt-0 lg:col-span-3 text-right text-xs">
-        <p>メインの上でホイール上下で画像を切り替え。Shiftキー同時でライティングを切り替え。</p>
-        <footer class="mt-3">
-          <p class="table ml-auto py-1 px-2 text-center text-gray-500 border border-gray-300 rounded-full">
-            <span class="inline-block">©2019 Bandai Namco Online Inc.</span>
-            <span class="inline-block">©2019 Bandai Namco Studios Inc.</span>
-          </p>
-        </footer>
+      <div class="mt-4 mx-auto lg:mt-0 z-10 lg:absolute w-72 lg:left-[calc(100%_-_5rem)] lg:top-[5%]">
+        <CostumeDetail client:load />
       </div>
     </div>
+    <div class="mt-6 lg:mt-0 lg:col-span-3 text-center lg:text-right text-xs">
+      <p>
+        <span class="inline-block">メインの上でホイール上下で画像を切り替え。</span>
+        <span class="inline-block">Shiftキー同時でライティングを切り替え。</span>
+      </p>
+      <footer class="mt-3">
+        <p class="inline-table py-1 px-2 text-center text-gray-500 border border-gray-300 rounded-full">
+          <span class="inline-block">©2019 Bandai Namco Online Inc.</span>
+          <span class="inline-block">©2019 Bandai Namco Studios Inc.</span>
+        </p>
+      </footer>
+    </div>
   </div>
-</main>
+</div>

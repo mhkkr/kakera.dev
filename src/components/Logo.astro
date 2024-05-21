@@ -3,20 +3,21 @@ import Avatar from '/public/images/avatar.svg';
 
 interface Props {
 	anchor?: boolean;
+	responsive?: boolean;
 }
-const { anchor = false } = Astro.props
+const { anchor = false, responsive = true } = Astro.props
 ---
 
 {anchor === true ? (
 	<a class="inline-flex flex-row gap-4 items-center align-text-bottom group" href="/" title="トップへ戻る">
-		<span class="grid grid-cols-1 place-content-center w-10 h-10 lg:w-20 lg:h-20 p-2 bg-white rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl group-hover:rounded-bl-none transition-all">
+		<span class={`grid grid-cols-1 place-content-center w-10 h-10 ${responsive ? 'lg:w-20 lg:h-20' : ''} p-2 bg-white rounded-full overflow-hidden shadow-lg group-hover:shadow-2xl group-hover:rounded-bl-none transition-all`}>
 			<img src={Avatar.src} width={Avatar.width} height={Avatar.height} alt="Kakera" />
 		</span>
 		<p class="font-bold">Kakera</p>
 	</a>
 ) : (
 	<div class="inline-flex flex-row gap-4 items-center align-text-bottom">
-		<span class="grid grid-cols-1 place-content-center w-10 h-10 lg:w-20 lg:h-20 p-2 bg-white rounded-full overflow-hidden shadow-lg">
+		<span class={`grid grid-cols-1 place-content-center w-10 h-10 ${responsive ? 'lg:w-20 lg:h-20' : ''} p-2 bg-white rounded-full overflow-hidden shadow-lg`}>
 			<img src={Avatar.src} width={Avatar.width} height={Avatar.height} alt="Kakera" />
 		</span>
 		<p class="font-bold">Kakera</p>
