@@ -14,7 +14,7 @@ export default function Costumes() {
             <button onClick={() => updateCurrentCostume(costume)} type="button">
               <img
                 className="absolute left-[-486%] top-[-62%] max-w-[800%]"
-                src={costume.image_afternoon.url}
+                src={costume.image_afternoon.src}
                 alt={costume.title}
                 title={costume.title}
               />

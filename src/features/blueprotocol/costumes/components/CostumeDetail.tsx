@@ -11,7 +11,7 @@ export default function CostumeImage() {
         <div className="relative overflow-hidden aspect-[18_/_5]">
           <img
             className="absolute left-[-77%] top-[-242%] max-w-[450%]"
-            src={$currentCostume.image_afternoon.url}
+            src={$currentCostume.image_afternoon.src}
             alt={$currentCostume.title}
           />
         </div>

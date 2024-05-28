@@ -3,11 +3,6 @@ import type { Costume } from '@bpCostumes/types/costume';
 import costumes from '@bpCostumes/assets/data/costumes.json';
 
 export const currentCostume = map<Costume>({
-  id: costumes[0].id,
-  createdAt: costumes[0].createdAt,
-  updatedAt: costumes[0].updatedAt,
-  publishedAt: costumes[0].publishedAt,
-  revisedAt: costumes[0].revisedAt,
   title: costumes[0].title,
   color: costumes[0].color,
   image_dawn: costumes[0].image_dawn,
@@ -21,11 +16,6 @@ export const currentCostume = map<Costume>({
 });
 
 export const updateCurrentCostume = (costume: Costume) => {
-  currentCostume.setKey('id', costume.id);
-  currentCostume.setKey('createdAt', costume.createdAt);
-  currentCostume.setKey('updatedAt', costume.updatedAt);
-  currentCostume.setKey('publishedAt', costume.publishedAt);
-  currentCostume.setKey('revisedAt', costume.revisedAt);
   currentCostume.setKey('title', costume.title);
   currentCostume.setKey('color', costume.color);
   currentCostume.setKey('image_dawn', costume.image_dawn);

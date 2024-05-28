@@ -1,24 +1,26 @@
 export interface Costume {
-  id: string,
-  createdAt: string,
-  updatedAt: string,
-  publishedAt: string,
-  revisedAt: string,
   title: string,
-  color: string[],
+  color: string,
   image_dawn: CostumeImage,
   image_morning: CostumeImage,
   image_afternoon: CostumeImage,
   image_evening: CostumeImage,
   image_night: CostumeImage,
-  comment?: string,
-  costume?: string,
-  under_wear?: string,
-  accessories?: string
+  comment: string,
+  costume: string,
+  accessories: string
 }
 
 interface CostumeImage {
-  url: string,
+  _id: string,
+  altText: string,
+  description: string,
+  fileName: string,
+  fileSize: number,
+  fileType: string,
   height: number,
+  metadata: {},
+  src: string,
+  title: string,
   width: number
 }

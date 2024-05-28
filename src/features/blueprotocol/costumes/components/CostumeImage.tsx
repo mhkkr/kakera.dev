@@ -19,11 +19,11 @@ export default function CostumeImage() {
 
   let src: string;
   switch ($currentLighting) {
-    case 'dawn': src = $currentCostume.image_dawn.url; break;
-    case 'morning': src = $currentCostume.image_morning.url; break;
-    case 'afternoon': src = $currentCostume.image_afternoon.url; break;
-    case 'evening': src = $currentCostume.image_evening.url; break;
-    case 'night': src = $currentCostume.image_night.url; break;
+    case 'dawn': src = $currentCostume.image_dawn.src; break;
+    case 'morning': src = $currentCostume.image_morning.src; break;
+    case 'afternoon': src = $currentCostume.image_afternoon.src; break;
+    case 'evening': src = $currentCostume.image_evening.src; break;
+    case 'night': src = $currentCostume.image_night.src; break;
   }
 
   useEffect(() => {
