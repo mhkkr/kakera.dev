@@ -101,12 +101,14 @@ const description = '自分の何かをまとめるサイト。\nぎりぎりフ
 					thumb={TechblogLogo}
 					url="https://techblog.kakera.dev/"
 				/>
-				<!-- <Card
-					title="欠's 購入品紹介"
-					description="レビューを書いていこうと思った…更新していない。"
-					thumb={HaulLogo}
-					url="https://haul.kakera.dev/"
-				/> -->
+				{false && (
+					<Card
+						title="欠's 購入品紹介"
+						description="レビューを書いていこうと思った…更新していない。"
+						thumb={HaulLogo}
+						url="https://haul.kakera.dev/"
+					/>
+				)}
 			</div>
 		</main>
 		<footer class="mb-16 text-center">
